@@ -1,0 +1,66 @@
+{
+  "solicitudes": [
+    {
+      "id": 1,
+      "cliente": "Ana Duarte",
+      "equipo": "Notebook",
+      "descripcion": "La batería se descarga aunque el equipo esté conectado.",
+      "fecha": "2026-11-20",
+      "estado": "en reparación"
+    },
+    {
+      "id": 2,
+      "cliente": "Luis Benítez",
+      "equipo": "Ventilador",
+      "descripcion": "El motor hace ruido y las aspas giran despacio.",
+      "fecha": "2026-11-21",
+      "estado": "presupuestada"
+    },
+    {
+      "id": 3,
+      "cliente": "Marta Rojas",
+      "equipo": "Licuadora",
+      "descripcion": "La licuadora no enciende.",
+      "fecha": "2026-11-23",
+      "estado": "pendiente"
+    }
+  ],
+  "presupuestos": [
+    {
+      "id": 1,
+      "solicitudId": 1,
+      "tecnico": "Diego Ortiz",
+      "detalle": "Reemplazo de batería y prueba de carga.",
+      "monto": 380000,
+      "estado": "aceptado"
+    },
+    {
+      "id": 2,
+      "solicitudId": 2,
+      "tecnico": "Laura Vera",
+      "detalle": "Limpieza del motor y cambio de bujes.",
+      "monto": 120000,
+      "estado": "pendiente"
+    }
+  ],
+  "seguimientos": [
+    {
+      "id": 1,
+      "solicitudId": 1,
+      "fecha": "2026-11-20",
+      "detalle": "La notebook ingresó al taller para diagnóstico."
+    },
+    {
+      "id": 2,
+      "solicitudId": 1,
+      "fecha": "2026-11-23",
+      "detalle": "Se aceptó el presupuesto y comenzó el reemplazo de la batería."
+    },
+    {
+      "id": 3,
+      "solicitudId": 2,
+      "fecha": "2026-11-22",
+      "detalle": "El taller envió el presupuesto al cliente."
+    }
+  ]
+}
