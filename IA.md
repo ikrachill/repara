@@ -209,5 +209,7 @@ continuar
 
 - Fase 3. Se reutilizaron los environments y la publicación de `src/assets` del starter. Se creó un JSON con tres colecciones, sus interfaces y un único servicio inyectable por constructor. El build pasó con el aviso conocido de Browserslist. Se comprobó el tipado del servicio por separado y se verificaron la copia del JSON en el build, la respuesta HTTP local y las referencias por `solicitudId`.
 
+- Antes de la fase 4 se ampliaron las tres colecciones de muestra a cinco registros. Para la pantalla de Solicitudes se usarán `*ngFor` y `*ngIf`, importando `NgFor` y `NgIf` desde `@angular/common`. Ambas directivas están disponibles en la versión instalada 22.3.0 y AGENTS.md pide usarlas mientras estén disponibles.
+
 ## Revisión de los integrantes
 
