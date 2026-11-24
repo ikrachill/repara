@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  urlRepara: 'assets/data/repara.json',
 };
 
 /*
