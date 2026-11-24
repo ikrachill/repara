@@ -185,13 +185,21 @@ a la raíz de TP-miapp/, borrá la subcarpeta vacía, y recién ahí inicializá
 git. La raíz del repo debe ser TP-miapp/, con AGENTS.md adentro.
 ~~~
 
+## Prompt de la fase 2
+
+~~~text
+continuar
+~~~
+
 ## Qué se generó y qué se corrigió
 
 - Fase 0. Se verificaron las versiones de las herramientas y las opciones del CLI. El proyecto todavía carecía de dependencias instaladas.
 - Fase 1. Se ejecutó `ionic.cmd start repara tabs --type=angular-standalone --no-git --no-capacitor --no-interactive`. Se movió todo el contenido, incluidos los archivos ocultos, a la raíz. Se eliminó el directorio vacío antes de ejecutar `git init`.
 - El CLI activó Capacitor pese a `--no-capacitor`. Se retiraron sus dependencias y su configuración generada y se volvió a compilar con éxito.
 - npm informó que bloqueó algunos scripts de instalación y Angular avisó que la configuración de Browserslist incluye navegadores fuera de su soporte. El build terminó correctamente.
-- Se confirmó en los tipos instalados de `@angular/common` 22.3.0 la exportación de `NgFor` y `NgIf`. Queda pendiente verificar la navegación en el navegador en la fase 2.
+- Se confirmó en los tipos instalados de `@angular/common` 22.3.0 la exportación de `NgFor` y `NgIf`.
+
+- Fase 2. Se renombraron las tres páginas y sus rutas, se asignaron íconos de herramientas, recibo y reloj y se retiró el componente de ejemplo. Se adaptó la prueba existente para recorrer las pestañas y detectar errores de consola. La prueba pasó en Chromium y el build pasó con el aviso conocido de Browserslist.
 
 ## Revisión de los integrantes
 

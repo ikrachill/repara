@@ -20,9 +20,9 @@ Está prevista en `src/assets/data/repara.json`, con las colecciones `solicitude
 
 | Componente | Dónde se usa |
 | --- | --- |
-| `ion-tabs`, `ion-tab-bar`, `ion-tab-button` | Navegación inicial en `src/app/tabs/tabs.page.html` |
-| `ion-icon` | Íconos provisionales en `src/app/tabs/tabs.page.html` |
-| `ion-header`, `ion-toolbar`, `ion-title`, `ion-content` | Plantillas provisionales de las tres páginas en `src/app/tab1/`, `src/app/tab2/` y `src/app/tab3/` |
+| `ion-tabs`, `ion-tab-bar`, `ion-tab-button` | Navegación de Solicitudes, Presupuestos y Seguimiento en `src/app/tabs/tabs.page.html` |
+| `ion-icon` | Íconos de herramientas, recibo y reloj en `src/app/tabs/tabs.page.html` |
+| `ion-header`, `ion-toolbar`, `ion-title`, `ion-content` | Encabezados y áreas de contenido de las tres páginas en `src/app/pages/` |
 
 ## Capturas
 
