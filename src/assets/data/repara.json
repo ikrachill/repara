@@ -23,6 +23,22 @@
       "descripcion": "La licuadora no enciende.",
       "fecha": "2026-11-23",
       "estado": "pendiente"
+    },
+    {
+      "id": 4,
+      "cliente": "Sof?a Vera",
+      "equipo": "Microondas",
+      "descripcion": "El equipo enciende, pero no calienta.",
+      "fecha": "2026-11-22",
+      "estado": "presupuestada"
+    },
+    {
+      "id": 5,
+      "cliente": "Pablo R?os",
+      "equipo": "Impresora",
+      "descripcion": "El papel se atasca al entrar.",
+      "fecha": "2026-11-21",
+      "estado": "finalizada"
     }
   ],
   "presupuestos": [
@@ -41,6 +57,30 @@
       "detalle": "Limpieza del motor y cambio de bujes.",
       "monto": 120000,
       "estado": "pendiente"
+    },
+    {
+      "id": 3,
+      "solicitudId": 2,
+      "tecnico": "Diego Ortiz",
+      "detalle": "Cambio del motor y prueba de funcionamiento.",
+      "monto": 210000,
+      "estado": "pendiente"
+    },
+    {
+      "id": 4,
+      "solicitudId": 4,
+      "tecnico": "Laura Vera",
+      "detalle": "Reemplazo del diodo de alta tensi?n.",
+      "monto": 240000,
+      "estado": "pendiente"
+    },
+    {
+      "id": 5,
+      "solicitudId": 5,
+      "tecnico": "Diego Ortiz",
+      "detalle": "Limpieza del mecanismo y cambio del rodillo de arrastre.",
+      "monto": 160000,
+      "estado": "aceptado"
     }
   ],
   "seguimientos": [
@@ -61,6 +101,18 @@
       "solicitudId": 2,
       "fecha": "2026-11-22",
       "detalle": "El taller envió el presupuesto al cliente."
+    },
+    {
+      "id": 4,
+      "solicitudId": 4,
+      "fecha": "2026-11-24",
+      "detalle": "El diagn?stico est? listo y el presupuesto espera confirmaci?n."
+    },
+    {
+      "id": 5,
+      "solicitudId": 5,
+      "fecha": "2026-11-24",
+      "detalle": "Se prob? la alimentaci?n de papel y se entreg? la impresora."
     }
   ]
 }
