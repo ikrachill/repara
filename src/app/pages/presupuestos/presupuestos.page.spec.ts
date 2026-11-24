@@ -1,14 +1,14 @@
 import type { ComponentFixture } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { ExploreContainerComponent } from './explore-container.component';
+import { PresupuestosPage } from './presupuestos.page';
 
-describe('ExploreContainerComponent', () => {
-  let component: ExploreContainerComponent;
-  let fixture: ComponentFixture<ExploreContainerComponent>;
+describe('PresupuestosPage', () => {
+  let component: PresupuestosPage;
+  let fixture: ComponentFixture<PresupuestosPage>;
 
   beforeEach(async () => {
-    fixture = TestBed.createComponent(ExploreContainerComponent);
+    fixture = TestBed.createComponent(PresupuestosPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

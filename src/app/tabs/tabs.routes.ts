@@ -8,27 +8,27 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadComponent: () => import('../tab1/tab1.page').then((m) => m.Tab1Page),
+        path: 'solicitudes',
+        loadComponent: () => import('../pages/solicitudes/solicitudes.page').then((m) => m.SolicitudesPage),
       },
       {
-        path: 'tab2',
-        loadComponent: () => import('../tab2/tab2.page').then((m) => m.Tab2Page),
+        path: 'presupuestos',
+        loadComponent: () => import('../pages/presupuestos/presupuestos.page').then((m) => m.PresupuestosPage),
       },
       {
-        path: 'tab3',
-        loadComponent: () => import('../tab3/tab3.page').then((m) => m.Tab3Page),
+        path: 'seguimiento',
+        loadComponent: () => import('../pages/seguimiento/seguimiento.page').then((m) => m.SeguimientoPage),
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/solicitudes',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/solicitudes',
     pathMatch: 'full',
   },
 ];
