@@ -2,9 +2,9 @@
 
 - Fase 0 completada. Diagnóstico de herramientas y compatibilidad.
 - Fase 1 completada. Starter tabs standalone en la raíz de `C:\TP-miapp`, repositorio inicializado y build aprobado. El CLI añadió Capacitor automáticamente y se retiró para conservar el alcance web.
-- Fase actual cerrada. Esperar «continuar» para la fase 3.
+- Fase actual cerrada. Esperar «continuar» para la fase 4.
 - Fase 2 completada. Páginas, selectores y rutas renombrados a Solicitudes, Presupuestos y Seguimiento, con íconos propios. Se retiraron los restos de las páginas de ejemplo y se organizaron las carpetas `pages/`, `services/` y `models/`. Pasaron el build y la prueba de navegación en Chromium.
-- Fase 3 pendiente. Crear environments, JSON local, interfaces y un único `ReparaService`.
+- Fase 3 completada. Los environments comparten `urlRepara`, el build publica el JSON y `ReparaService` expone una lectura tipada por `HttpClient`. Se verificó la respuesta HTTP y las relaciones por `solicitudId`.
 - Fases 4 a 6 pendientes. Implementar el contenido de las tres pestañas en orden.
 - Fase 7 pendiente. Completar al menos siete componentes Ionic que cuenten para la rúbrica y el manejo de carga, error y reintento.
 - Fase 8 pendiente. Completar documentos y auditar cada indicador con ruta de evidencia.

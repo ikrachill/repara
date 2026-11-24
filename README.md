@@ -14,7 +14,7 @@ Plataforma web para solicitar reparaciones, consultar presupuestos y seguir el e
 
 ## Fuente de datos
 
-Está prevista en `src/assets/data/repara.json`, con las colecciones `solicitudes`, `presupuestos` y `seguimientos`. Las dos últimas se relacionan con la primera por `solicitudId`. El archivo se incorpora en la fase 3.
+La aplicación usa el archivo local `src/assets/data/repara.json`, con las colecciones `solicitudes`, `presupuestos` y `seguimientos`. Las dos últimas se relacionan con la primera por `solicitudId`. Los dos environments configuran su URL con la clave `urlRepara`. El consumo desde las pantallas empieza en la fase 4.
 
 ## Componentes Ionic
 
