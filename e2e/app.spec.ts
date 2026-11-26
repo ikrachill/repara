@@ -24,5 +24,10 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
     await expect(page.locator(`app-${ruta} ion-title`).first()).toHaveText(titulo);
   }
 
+  await page.locator('ion-tab-button[tab="presupuestos"]').click();
+  const tarjetas = page.locator('app-presupuestos ion-card');
+  await expect(tarjetas).toHaveCount(5);
+  await expect(tarjetas.first().locator('ion-card-title')).toHaveText('Notebook');
+
   expect(errores).toEqual([]);
 });
