@@ -197,6 +197,12 @@ continuar
 continuar
 ~~~
 
+## Prompt de la fase 4
+
+~~~text
+continuar
+~~~
+
 ## Qué se generó y qué se corrigió
 
 - Fase 0. Se verificaron las versiones de las herramientas y las opciones del CLI. El proyecto todavía carecía de dependencias instaladas.
@@ -210,6 +216,8 @@ continuar
 - Fase 3. Se reutilizaron los environments y la publicación de `src/assets` del starter. Se creó un JSON con tres colecciones, sus interfaces y un único servicio inyectable por constructor. El build pasó con el aviso conocido de Browserslist. Se comprobó el tipado del servicio por separado y se verificaron la copia del JSON en el build, la respuesta HTTP local y las referencias por `solicitudId`.
 
 - Antes de la fase 4 se ampliaron las tres colecciones de muestra a cinco registros. Para la pantalla de Solicitudes se usarán `*ngFor` y `*ngIf`, importando `NgFor` y `NgIf` desde `@angular/common`. Ambas directivas están disponibles en la versión instalada 22.3.0 y AGENTS.md pide usarlas mientras estén disponibles.
+
+- Fase 4. Se conectó Solicitudes al servicio en `ngOnInit`, se listaron los datos con `*ngFor` y se implementaron carga, error, reintento y lista vacía con `*ngIf`. El build pasó con el aviso conocido de Browserslist. La prueba unitaria verificó carga, error y reintento. La prueba de Chromium verificó cinco filas del JSON y la navegación entre pestañas.
 
 ## Revisión de los integrantes
 

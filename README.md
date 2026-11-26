@@ -14,7 +14,7 @@ Plataforma web para solicitar reparaciones, consultar presupuestos y seguir el e
 
 ## Fuente de datos
 
-La aplicación usa el archivo local `src/assets/data/repara.json`, con las colecciones `solicitudes`, `presupuestos` y `seguimientos`. Las dos últimas se relacionan con la primera por `solicitudId`. Los dos environments configuran su URL con la clave `urlRepara`. El consumo desde las pantallas empieza en la fase 4.
+La aplicación usa el archivo local `src/assets/data/repara.json`, con las colecciones `solicitudes`, `presupuestos` y `seguimientos`. Las dos últimas se relacionan con la primera por `solicitudId`. Los dos environments configuran su URL con la clave `urlRepara`. La pestaña Solicitudes ya carga los registros desde este archivo.
 
 ## Componentes Ionic
 
@@ -23,6 +23,9 @@ La aplicación usa el archivo local `src/assets/data/repara.json`, con las colec
 | `ion-tabs`, `ion-tab-bar`, `ion-tab-button` | Navegación de Solicitudes, Presupuestos y Seguimiento en `src/app/tabs/tabs.page.html` |
 | `ion-icon` | Íconos de herramientas, recibo y reloj en `src/app/tabs/tabs.page.html` |
 | `ion-header`, `ion-toolbar`, `ion-title`, `ion-content` | Encabezados y áreas de contenido de las tres páginas en `src/app/pages/` |
+
+| `ion-list`, `ion-item`, `ion-label`, `ion-badge` | Registros y estados de Solicitudes en `src/app/pages/solicitudes/solicitudes.page.html` |
+| `ion-spinner`, `ion-button` | Indicador de carga y reintento de Solicitudes en la misma plantilla |
 
 ## Capturas
 
