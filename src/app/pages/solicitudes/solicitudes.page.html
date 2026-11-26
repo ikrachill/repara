@@ -10,4 +10,30 @@
       <ion-title size="large">Solicitudes</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngIf="cargando" class="ion-padding" role="status">
+    <ion-spinner aria-hidden="true"></ion-spinner>
+    <p>Cargando solicitudes…</p>
+  </div>
+
+  <div *ngIf="error" class="ion-padding">
+    <p role="alert">{{ error }}</p>
+    <ion-button (click)="cargarSolicitudes()">Reintentar</ion-button>
+  </div>
+
+  <ng-container *ngIf="!cargando && !error">
+    <ion-list *ngIf="solicitudes.length; else sinSolicitudes">
+      <ion-item *ngFor="let solicitud of solicitudes">
+        <ion-label class="ion-text-wrap">
+          <h2>{{ solicitud.equipo }}</h2>
+          <p>{{ solicitud.cliente }} · {{ solicitud.fecha }}</p>
+          <p>{{ solicitud.descripcion }}</p>
+        </ion-label>
+        <ion-badge slot="end">{{ solicitud.estado }}</ion-badge>
+      </ion-item>
+    </ion-list>
+    <ng-template #sinSolicitudes>
+      <p class="ion-padding">No hay solicitudes registradas.</p>
+    </ng-template>
+  </ng-container>
 </ion-content>
