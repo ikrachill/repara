@@ -1,6 +1,6 @@
 # Explicación de REPARA
 
-## Archivos y decisiones de las fases 1 a 4
+## Archivos y decisiones de las fases 1 a 5
 
 | Archivo o grupo | Función |
 | --- | --- |
@@ -22,6 +22,8 @@
 Se eligió standalone para declarar en cada componente las dependencias de su plantilla. Se mantuvo el starter tabs como base y se retiró Capacitor porque la entrega se ejecuta en navegador. La raíz redirige a Solicitudes. El router carga cada página cuando se visita su ruta y la barra registra un ícono acorde a cada pestaña.
 
 `solicitudes.page.ts` carga los datos en `ngOnInit` y permite repetir la petición tras un error. `finalize` apaga el indicador al finalizar la petición y `markForCheck` señala que la plantilla debe actualizarse. `solicitudes.page.html` usa `*ngIf` para los estados de carga, error y lista vacía, y `*ngFor` para mostrar cada solicitud. La prueba de la página simula una primera petición fallida y un reintento exitoso.
+
+`presupuestos.page.ts` solicita el mismo JSON y relaciona cada presupuesto con su solicitud por `solicitudId`. Si no encuentra el equipo, muestra el identificador de la solicitud. `presupuestos.page.html` muestra tarjetas con el equipo, técnico, detalle, monto en guaraníes y estado. Su prueba comprueba el reintento y el nombre del equipo asociado.
 
 ## Diez preguntas del docente
 
