@@ -10,4 +10,29 @@
       <ion-title size="large">Presupuestos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngIf="cargando" class="ion-padding" role="status">
+    <ion-spinner aria-hidden="true"></ion-spinner>
+    <p>Cargando presupuestos…</p>
+  </div>
+
+  <div *ngIf="error" class="ion-padding">
+    <p role="alert">{{ error }}</p>
+    <ion-button (click)="cargarPresupuestos()">Reintentar</ion-button>
+  </div>
+
+  <ng-container *ngIf="!cargando && !error">
+    <ion-card *ngFor="let presupuesto of presupuestos">
+      <ion-card-header>
+        <ion-card-title>{{ presupuesto.equipo }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Técnico: {{ presupuesto.tecnico }}</p>
+        <p>{{ presupuesto.detalle }}</p>
+        <p>Monto: Gs. {{ presupuesto.monto | number:'1.0-0' }}</p>
+        <ion-badge>{{ presupuesto.estado }}</ion-badge>
+      </ion-card-content>
+    </ion-card>
+    <p *ngIf="!presupuestos.length" class="ion-padding">No hay presupuestos registrados.</p>
+  </ng-container>
 </ion-content>
