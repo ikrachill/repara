@@ -209,6 +209,12 @@ continuar
 continuar
 ~~~
 
+## Prompt de la fase 6
+
+~~~text
+continuar
+~~~
+
 ## Qué se generó y qué se corrigió
 
 - Fase 0. Se verificaron las versiones de las herramientas y las opciones del CLI. El proyecto todavía carecía de dependencias instaladas.
@@ -226,6 +232,8 @@ continuar
 - Fase 4. Se conectó Solicitudes al servicio en `ngOnInit`, se listaron los datos con `*ngFor` y se implementaron carga, error, reintento y lista vacía con `*ngIf`. El build pasó con el aviso conocido de Browserslist. La prueba unitaria verificó carga, error y reintento. La prueba de Chromium verificó cinco filas del JSON y la navegación entre pestañas.
 
 - Fase 5. Se conectó Presupuestos al servicio en `ngOnInit`, se asociaron los equipos por `solicitudId` y se mostraron los registros con `*ngFor`. Se usó `*ngIf` para carga, error y lista vacía. El build pasó con el aviso conocido de Browserslist. La prueba unitaria verificó carga, error, reintento y equipo asociado. Chromium confirmó cinco tarjetas y la navegación sin errores de consola.
+
+- Fase 6. Se conectó Seguimiento al servicio, se ordenaron las novedades por fecha y se asoció su equipo por `solicitudId`. Se usaron `*ngFor` y `*ngIf`. La primera compilación detectó importaciones de Ionic que faltaban en Seguimiento. Se corrigieron y el build pasó con el aviso conocido de Browserslist. Pasaron las cinco pruebas unitarias y Chromium verificó las cinco novedades y la navegación.
 
 ## Revisión de los integrantes
 
