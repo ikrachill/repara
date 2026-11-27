@@ -261,5 +261,7 @@ continuar
 
 - Último pulido. Se actualizó el texto automático de Seguimiento y su prueba de navegador. Se reemplazó la foto por una reparación de celular y se aplicó una ola CSS al logo REPARÁ. La primera compilación avisó que la hoja de estilos de Bienvenida superaba su presupuesto. Se simplificaron los retardos con una variable CSS por letra y se volvió a compilar. Se verificaron los retardos y el movimiento reducido en Chromium.
 
+- Pulido final. Se cambió el texto de las novedades a «El técnico actualizó el estado a: …» y se verificó en el navegador. Se agregó una máscara para difuminar la foto y un tricolor inferior al 8 %. El primer build advirtió por el tamaño de los estilos de Bienvenida. Las reglas del fondo se trasladaron a `global.scss` con alcance limitado a Bienvenida y el build final pasó con el aviso conocido de Browserslist.
+
 ## Revisión de los integrantes
 

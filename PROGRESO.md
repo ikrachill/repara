@@ -22,7 +22,9 @@ Se restauraron los acentos dañados en el JSON y se aplicó el tema claro a las 
 
 Se agregó la bienvenida standalone en la raíz, con elección de rol únicamente al ingresar. Las rutas directas y las tres pestañas siguen disponibles. Se añadieron animaciones CSS, encabezados con subtítulos e íconos para los estados vacíos.
 
-Cada cambio de estado ahora genera una novedad de sesión y aparece en Seguimiento al volver a la pestaña. Se agregó una foto local de una reparación en curso en Bienvenida. El logo REPARÁ se anima letra por letra y las novedades usan el texto «El técnico actualizó el estado del equipo a…».
+Cada cambio de estado ahora genera una novedad de sesión y aparece en Seguimiento al volver a la pestaña. Se agregó una foto local de una reparación en curso en Bienvenida. El logo REPARÁ se anima letra por letra y las novedades usan el texto «El técnico actualizó el estado a: …».
+
+La foto de Bienvenida se difumina hacia abajo y el fondo inferior lleva el tricolor paraguayo al 8 %.
 
 ## Auditoría final de la rúbrica
 
