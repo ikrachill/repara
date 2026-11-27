@@ -1,5 +1,5 @@
 ion-content {
-  --background: linear-gradient(160deg, #adf02d 0%, var(--ion-color-primary) 37%, var(--ion-background-color) 70%);
+  --background: var(--ion-background-color);
 }
 
 .bienvenida {
@@ -7,19 +7,38 @@ ion-content {
   isolation: isolate;
   display: grid;
   min-height: 100%;
+  grid-template-columns: minmax(0, 46%) 1fr;
   align-items: center;
   justify-items: center;
-  padding: calc(24px + var(--ion-safe-area-top, 0px)) 20px
+  padding: calc(24px + var(--ion-safe-area-top, 0px)) 24px
     calc(24px + var(--ion-safe-area-bottom, 0px));
 }
 
 .bienvenida::before {
   position: absolute;
-  inset: 0;
+  inset: 0 0 0 44%;
   z-index: -1;
-  background: url('/assets/taller-bienvenida.jpg') center / cover no-repeat;
-  opacity: 0.15;
+  background: linear-gradient(rgba(195, 241, 67, 0.08), rgba(195, 241, 67, 0.08)),
+    url('/assets/taller-bienvenida.jpg') center 48% / cover no-repeat;
   content: '';
+}
+
+@media (max-width: 760px) {
+  .bienvenida {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    padding: 0 16px calc(24px + var(--ion-safe-area-bottom, 0px));
+  }
+
+  .bienvenida::before {
+    inset: 0 0 auto;
+    height: 290px;
+    background-position: center, center 74%;
+  }
+
+  .panel {
+    margin-top: 220px;
+  }
 }
 
 .panel {
@@ -38,9 +57,14 @@ h1 {
   letter-spacing: -0.09em;
 }
 
-h1 span {
+.logo { display: inline-flex; }
+
+.logo-letra {
   display: inline-block;
-  color: var(--ion-color-primary);
+}
+
+.logo-punto {
+  color: #79a300;
 }
 
 p {
@@ -93,9 +117,9 @@ ion-button {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  h1 {
-    animation: breathe 3s ease-in-out infinite;
-    transform-origin: left center;
+  .logo-letra {
+    animation: ola-logo 3s ease-in-out infinite;
+    animation-delay: calc(var(--posicion) * 90ms);
   }
 
   ion-button {
@@ -107,7 +131,7 @@ ion-button {
   }
 }
 
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
+@keyframes ola-logo {
+  0%, 19%, 100% { transform: translateY(0); }
+  9% { transform: translateY(-4px); }
 }
