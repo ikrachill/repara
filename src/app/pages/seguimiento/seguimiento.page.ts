@@ -23,6 +23,7 @@ export class SeguimientoPage implements OnInit {
   seguimientos: (Seguimiento & { equipo: string })[] = [];
   cargando = false;
   error = '';
+  private yaEntro = false;
 
   constructor(
     private readonly reparaService: ReparaService,
@@ -33,6 +34,13 @@ export class SeguimientoPage implements OnInit {
 
   ngOnInit(): void {
     this.cargarSeguimientos();
+  }
+
+  ionViewWillEnter(): void {
+    if (this.yaEntro) {
+      this.cargarSeguimientos();
+    }
+    this.yaEntro = true;
   }
 
   cargarSeguimientos(): void {
