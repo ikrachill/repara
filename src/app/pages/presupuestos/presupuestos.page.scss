@@ -1,10 +1,15 @@
+:host {
+  --repara-encabezado: #fff0d2;
+  --repara-icono-vacio: #81511c;
+}
+
 ion-card {
   --background: var(--repara-superficie);
   --color: var(--repara-texto-secundario);
   margin: 12px 0;
   border: none;
   border-radius: var(--repara-radio);
-  box-shadow: var(--repara-sombra);
+  box-shadow: var(--repara-sombra-elevada);
 }
 
 ion-card-title {

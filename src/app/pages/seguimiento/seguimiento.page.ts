@@ -2,8 +2,10 @@ import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectorRef, Component, type OnInit } from '@angular/core';
 import {
   IonButton, IonItem, IonLabel, IonList, IonNote,
-  IonContent, IonHeader, IonSpinner, IonTitle, IonToolbar,
+  IonContent, IonHeader, IonIcon, IonSpinner, IonTitle, IonToolbar,
 } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { timeOutline } from 'ionicons/icons';
 import { finalize } from 'rxjs';
 
 import type { Seguimiento } from '../../models/repara.model';
@@ -14,7 +16,7 @@ import { ReparaService } from '../../services/repara.service';
   templateUrl: 'seguimiento.page.html',
   styleUrls: ['seguimiento.page.scss'],
   imports: [
-    NgFor, NgIf, IonButton, IonItem, IonLabel, IonList, IonNote, IonContent, IonHeader, IonSpinner, IonTitle, IonToolbar,
+    NgFor, NgIf, IonButton, IonItem, IonLabel, IonList, IonNote, IonContent, IonHeader, IonIcon, IonSpinner, IonTitle, IonToolbar,
   ],
 })
 export class SeguimientoPage implements OnInit {
@@ -25,7 +27,9 @@ export class SeguimientoPage implements OnInit {
   constructor(
     private readonly reparaService: ReparaService,
     private readonly detector: ChangeDetectorRef,
-  ) {}
+  ) {
+    addIcons({ timeOutline });
+  }
 
   ngOnInit(): void {
     this.cargarSeguimientos();

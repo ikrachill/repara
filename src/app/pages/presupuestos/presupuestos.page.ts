@@ -2,8 +2,10 @@ import { DecimalPipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectorRef, Component, type OnInit } from '@angular/core';
 import {
   IonBadge, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle,
-  IonContent, IonHeader, IonSpinner, IonTitle, IonToolbar,
+  IonContent, IonHeader, IonIcon, IonSpinner, IonTitle, IonToolbar,
 } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { receiptOutline } from 'ionicons/icons';
 import { finalize } from 'rxjs';
 
 import type { Presupuesto } from '../../models/repara.model';
@@ -15,7 +17,7 @@ import { ReparaService } from '../../services/repara.service';
   styleUrls: ['presupuestos.page.scss'],
   imports: [
     DecimalPipe, NgFor, NgIf, IonBadge, IonButton, IonCard, IonCardContent, IonCardHeader,
-    IonCardTitle, IonContent, IonHeader, IonSpinner, IonTitle, IonToolbar,
+    IonCardTitle, IonContent, IonHeader, IonIcon, IonSpinner, IonTitle, IonToolbar,
   ],
 })
 export class PresupuestosPage implements OnInit {
@@ -26,7 +28,9 @@ export class PresupuestosPage implements OnInit {
   constructor(
     private readonly reparaService: ReparaService,
     private readonly detector: ChangeDetectorRef,
-  ) {}
+  ) {
+    addIcons({ receiptOutline });
+  }
 
   ngOnInit(): void {
     this.cargarPresupuestos();

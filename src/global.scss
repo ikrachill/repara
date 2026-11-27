@@ -113,3 +113,44 @@ ion-button {
   letter-spacing: 0;
   text-transform: none;
 }
+
+.encabezado-pestana ion-toolbar {
+  --background: var(--repara-encabezado);
+  --padding-top: 18px;
+  --padding-bottom: 16px;
+  --min-height: 0;
+}
+
+.encabezado-pestana ion-title {
+  padding-inline: 20px;
+  font-size: 1.65rem;
+}
+
+.encabezado-pestana p {
+  margin: 5px 20px 0;
+  color: var(--repara-texto-secundario);
+  font-size: 0.9rem;
+}
+
+.estado-vacio {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 64px 16px;
+  color: var(--repara-texto-secundario);
+  text-align: center;
+}
+
+.estado-vacio ion-icon {
+  box-sizing: content-box;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+  border-radius: 24px;
+  background: var(--repara-encabezado);
+  color: var(--repara-icono-vacio);
+}
+
+.estado-vacio p {
+  margin: 0;
+}

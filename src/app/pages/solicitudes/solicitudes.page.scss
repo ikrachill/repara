@@ -1,20 +1,6 @@
-ion-select {
-  display: inline-flex;
-  width: fit-content;
-  min-height: 44px;
-  margin: 12px 0 0;
-  --background: var(--ion-color-primary);
-  --border-radius: 24px;
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --highlight-color: var(--repara-verde-oscuro);
-  color: var(--ion-text-color);
-  font-weight: 650;
-}
-
-ion-select::part(icon) {
-  margin-inline-start: 8px;
-  opacity: 1;
+:host {
+  --repara-encabezado: #eef6d9;
+  --repara-icono-vacio: #49601e;
 }
 
 ion-badge {
@@ -24,4 +10,8 @@ ion-badge {
 ion-item ion-button {
   max-width: 38%;
   white-space: normal;
+}
+
+.lista-tarjetas ion-item {
+  box-shadow: var(--repara-sombra-elevada);
 }

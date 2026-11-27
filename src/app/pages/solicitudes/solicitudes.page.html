@@ -1,22 +1,11 @@
-<ion-header [translucent]="true">
+<ion-header class="encabezado-pestana">
   <ion-toolbar>
     <ion-title>Solicitudes</ion-title>
+    <p>Revisá tus pedidos de reparación.</p>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Solicitudes</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="ion-padding-horizontal">
-    <ion-select label="Rol activo" [value]="rolActivo" (ionChange)="cambiarRol($event.detail.value)">
-      <ion-select-option value="cliente">Cliente</ion-select-option>
-      <ion-select-option value="tecnico">Técnico</ion-select-option>
-    </ion-select>
-  </div>
+<ion-content>
 
   <div *ngIf="cargando" class="ion-padding" role="status">
     <ion-spinner aria-hidden="true"></ion-spinner>
@@ -44,7 +33,10 @@
       </ion-item>
     </ion-list>
     <ng-template #sinSolicitudes>
-      <p class="ion-padding">No hay solicitudes registradas.</p>
+      <div class="estado-vacio">
+        <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
+        <p>No hay solicitudes registradas.</p>
+      </div>
     </ng-template>
   </section>
 </ion-content>

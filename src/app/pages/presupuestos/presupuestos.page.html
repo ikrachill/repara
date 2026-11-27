@@ -1,15 +1,11 @@
-<ion-header [translucent]="true">
+<ion-header class="encabezado-pestana">
   <ion-toolbar>
     <ion-title>Presupuestos</ion-title>
+    <p>Consultá los costos de tus reparaciones.</p>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Presupuestos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
   <div *ngIf="cargando" class="ion-padding" role="status">
     <ion-spinner aria-hidden="true"></ion-spinner>
@@ -33,6 +29,9 @@
         <ion-badge [attr.data-estado]="presupuesto.estado">{{ presupuesto.estado }}</ion-badge>
       </ion-card-content>
     </ion-card>
-    <p *ngIf="!presupuestos.length" class="ion-padding">No hay presupuestos registrados.</p>
+    <div class="estado-vacio" *ngIf="!presupuestos.length">
+      <ion-icon name="receipt-outline" aria-hidden="true"></ion-icon>
+      <p>No hay presupuestos registrados.</p>
+    </div>
   </section>
 </ion-content>
