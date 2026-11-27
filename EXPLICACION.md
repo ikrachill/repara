@@ -1,6 +1,6 @@
 # Explicación de REPARA
 
-## Archivos y decisiones de las fases 1 a 6
+## Archivos y decisiones de las fases 1 a 7
 
 | Archivo o grupo | Función |
 | --- | --- |
@@ -9,7 +9,7 @@
 | `src/app/tabs/tabs.page.*`, `src/app/tabs/tabs.routes.ts` | Definen la barra inferior y las rutas hijas que cargan las páginas. |
 | `src/app/pages/solicitudes/`, `src/app/pages/presupuestos/`, `src/app/pages/seguimiento/` | Cada carpeta contiene el componente standalone, su plantilla, estilos y prueba unitaria. |
 | `src/app/models/repara.model.ts` | Define el rol y las interfaces de las tres colecciones y de la respuesta completa. |
-| `src/app/services/repara.service.ts` | Inyecta `HttpClient` por constructor, lee las tres colecciones con una petición y mantiene el rol de interfaz, inicialmente cliente. |
+| `src/app/services/repara.service.ts` | Inyecta `HttpClient` por constructor, lee las tres colecciones con una petición y mantiene el rol de interfaz, inicialmente cliente, y guarda por ID los cambios de estado de la sesión. |
 | `src/environments/environment.ts`, `src/environments/environment.prod.ts` | Definen la misma clave `urlRepara`. Angular reemplaza el archivo de desarrollo al compilar para producción. |
 | `src/assets/data/repara.json` | Contiene los datos de muestra y se publica con los demás recursos del build. |
 | `src/global.scss`, `src/theme/`, `src/assets/` | Estilos generales, tema y recursos estáticos. |
@@ -26,6 +26,8 @@ Se eligió standalone para declarar en cada componente las dependencias de su pl
 `presupuestos.page.ts` solicita el mismo JSON y relaciona cada presupuesto con su solicitud por `solicitudId`. Si no encuentra el equipo, muestra el identificador de la solicitud. `presupuestos.page.html` muestra tarjetas con el equipo, técnico, detalle, monto en guaraníes y estado. Su prueba comprueba el reintento y el nombre del equipo asociado.
 
 `seguimiento.page.ts` carga el JSON en `ngOnInit`, ordena una copia de las novedades de más reciente a más antigua y obtiene el equipo por `solicitudId`. `seguimiento.page.html` usa `*ngFor` para listar el equipo, el detalle y la fecha, y `*ngIf` para carga, error y lista vacía. La prueba comprueba el reintento y el orden por fecha.
+
+El selector de Solicitudes actualiza `rolActivo` mediante `ionChange`. El botón de cada solicitud abierta se muestra si el rol es técnico. Al hacer clic, la página elige el siguiente estado y el servicio vuelve a comprobar el rol antes de aplicarlo. El servicio guarda el estado por ID en memoria y lo aplica a las lecturas posteriores del JSON durante la misma sesión.
 
 ## Diez preguntas del docente
 

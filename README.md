@@ -16,6 +16,10 @@ Plataforma web para solicitar reparaciones, consultar presupuestos y seguir el e
 
 La aplicación usa el archivo local `src/assets/data/repara.json`, con las colecciones `solicitudes`, `presupuestos` y `seguimientos`. Las dos últimas se relacionan con la primera por `solicitudId`. Los dos environments configuran su URL con la clave `urlRepara`. Las tres pestañas cargan sus registros desde este archivo.
 
+## Rol simulado
+
+En Solicitudes, el selector arranca en Cliente. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado. Los cambios se conservan al navegar y se reinician al recargar el navegador.
+
 ## Componentes Ionic
 
 | Componente | Dónde se usa |
@@ -23,10 +27,11 @@ La aplicación usa el archivo local `src/assets/data/repara.json`, con las colec
 | `ion-tabs`, `ion-tab-bar`, `ion-tab-button` | Navegación de Solicitudes, Presupuestos y Seguimiento en `src/app/tabs/tabs.page.html` |
 | `ion-icon` | Íconos de herramientas, recibo y reloj en `src/app/tabs/tabs.page.html` |
 | `ion-header`, `ion-toolbar`, `ion-title`, `ion-content` | Encabezados y áreas de contenido de las tres páginas en `src/app/pages/` |
-| `ion-list`, `ion-item`, `ion-label`, `ion-badge` | Lista y estados en `src/app/pages/solicitudes/solicitudes.page.html` |
-| `ion-spinner`, `ion-button` | Indicador de carga y reintento en las plantillas de las tres pestañas |
+| `ion-list`, `ion-item`, `ion-label`, `ion-badge` | Agrupan los registros, muestran equipo y cliente y reflejan el estado en `src/app/pages/solicitudes/solicitudes.page.html` |
+| `ion-spinner`, `ion-button` | Carga y reintento en las tres pestañas. En Solicitudes, el botón también avanza el estado del registro seleccionado |
 | `ion-card`, `ion-card-header`, `ion-card-title`, `ion-card-content`, `ion-badge` | Equipo, detalle, monto y estado en `src/app/pages/presupuestos/presupuestos.page.html` |
 | `ion-list`, `ion-item`, `ion-label`, `ion-note` | Equipo, detalle y fecha de cada novedad en `src/app/pages/seguimiento/seguimiento.page.html` |
+| `ion-select`, `ion-select-option` | Muestran y actualizan el rol activo en `src/app/pages/solicitudes/solicitudes.page.html` |
 
 ## Capturas
 

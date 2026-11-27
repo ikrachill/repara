@@ -215,6 +215,12 @@ continuar
 continuar
 ~~~
 
+## Prompt de la fase 7
+
+~~~text
+continuar
+~~~
+
 ## Qué se generó y qué se corrigió
 
 - Fase 0. Se verificaron las versiones de las herramientas y las opciones del CLI. El proyecto todavía carecía de dependencias instaladas.
@@ -234,6 +240,8 @@ continuar
 - Fase 5. Se conectó Presupuestos al servicio en `ngOnInit`, se asociaron los equipos por `solicitudId` y se mostraron los registros con `*ngFor`. Se usó `*ngIf` para carga, error y lista vacía. El build pasó con el aviso conocido de Browserslist. La prueba unitaria verificó carga, error, reintento y equipo asociado. Chromium confirmó cinco tarjetas y la navegación sin errores de consola.
 
 - Fase 6. Se conectó Seguimiento al servicio, se ordenaron las novedades por fecha y se asoció su equipo por `solicitudId`. Se usaron `*ngFor` y `*ngIf`. La primera compilación detectó importaciones de Ionic que faltaban en Seguimiento. Se corrigieron y el build pasó con el aviso conocido de Browserslist. Pasaron las cinco pruebas unitarias y Chromium verificó las cinco novedades y la navegación.
+
+- Fase 7. Se integró el rol simulado en Solicitudes y el cambio de estado en memoria para el técnico. Se documentaron los usos de los componentes conectados a registros, estados de carga y eventos. El build pasó con el aviso conocido de Browserslist. En Chromium se verificaron los permisos de interfaz, la conservación del estado al navegar y su reinicio al recargar.
 
 ## Revisión de los integrantes
 
