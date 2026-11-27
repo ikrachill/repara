@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "cliente": "Sof?a Vera",
+      "cliente": "Sofía Vera",
       "equipo": "Microondas",
       "descripcion": "El equipo enciende, pero no calienta.",
       "fecha": "2026-11-22",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "cliente": "Pablo R?os",
+      "cliente": "Pablo Ríos",
       "equipo": "Impresora",
       "descripcion": "El papel se atasca al entrar.",
       "fecha": "2026-11-21",
@@ -70,7 +70,7 @@
       "id": 4,
       "solicitudId": 4,
       "tecnico": "Laura Vera",
-      "detalle": "Reemplazo del diodo de alta tensi?n.",
+      "detalle": "Reemplazo del diodo de alta tensión.",
       "monto": 240000,
       "estado": "pendiente"
     },
@@ -106,13 +106,13 @@
       "id": 4,
       "solicitudId": 4,
       "fecha": "2026-11-24",
-      "detalle": "El diagn?stico est? listo y el presupuesto espera confirmaci?n."
+      "detalle": "El diagnóstico está listo y el presupuesto espera confirmación."
     },
     {
       "id": 5,
       "solicitudId": 5,
       "fecha": "2026-11-24",
-      "detalle": "Se prob? la alimentaci?n de papel y se entreg? la impresora."
+      "detalle": "Se probó la alimentación de papel y se entregó la impresora."
     }
   ]
 }
