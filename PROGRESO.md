@@ -20,7 +20,7 @@ Usar PowerShell y trabajar una fase por autorización. Anunciar el plan, ejecuta
 
 Se restauraron los acentos dañados en el JSON y se aplicó el tema claro a las tres pestañas. El build pasó, las pruebas se ejecutaron en Chromium y se prepararon capturas móviles de la versión final.
 
-Se agregó la bienvenida standalone en la raíz, con rol inicial elegido al ingresar y selector de respaldo en Solicitudes. Las rutas directas y las tres pestañas siguen disponibles.
+Se agregó la bienvenida standalone en la raíz, con elección de rol únicamente al ingresar. Las rutas directas y las tres pestañas siguen disponibles. Se añadieron animaciones CSS, encabezados con subtítulos e íconos para los estados vacíos.
 
 ## Auditoría final de la rúbrica
 

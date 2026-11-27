@@ -255,5 +255,7 @@ continuar
 
 - Bienvenida. Se agregó una página standalone en la ruta raíz con campos simulados, logo tipográfico y selección de rol. Al ingresar se actualiza `rolActivo` y se navega a Solicitudes. Se conservó el selector de Solicitudes y se adaptaron las pruebas para entrar desde Bienvenida.
 
+- Pulido de UX. Se animó el logo con CSS, se añadieron beneficios y se movió la elección del rol exclusivamente a Bienvenida. Las pestañas incorporaron encabezados con subtítulos, estados vacíos con íconos y sombras más visibles en Solicitudes y Presupuestos. Las pruebas en Chromium verificaron navegación, rol técnico y los tres estados vacíos.
+
 ## Revisión de los integrantes
 

@@ -27,13 +27,13 @@ Se eligió standalone para declarar en cada componente las dependencias de su pl
 
 `seguimiento.page.ts` carga el JSON en `ngOnInit`, ordena una copia de las novedades de más reciente a más antigua y obtiene el equipo por `solicitudId`. `seguimiento.page.html` usa `*ngFor` para listar el equipo, el detalle y la fecha, y `*ngIf` para carga, error y lista vacía. La prueba comprueba el reintento y el orden por fecha.
 
-El selector de Solicitudes actualiza `rolActivo` mediante `ionChange`. El botón de cada solicitud abierta se muestra si el rol es técnico. Al hacer clic, la página elige el siguiente estado y el servicio vuelve a comprobar el rol antes de aplicarlo. El servicio guarda el estado por ID en memoria y lo aplica a las lecturas posteriores del JSON durante la misma sesión.
+En Bienvenida, `ionChange` actualiza la selección y el botón Ingresar copia el rol a `rolActivo` en el servicio. El botón de cada solicitud abierta se muestra si el rol es técnico. Al hacer clic, la página elige el siguiente estado y el servicio vuelve a comprobar el rol antes de aplicarlo. El servicio guarda el estado por ID en memoria y lo aplica a las lecturas posteriores del JSON durante la misma sesión.
 
 La auditoría final y sus rutas de evidencia están en `PROGRESO.md`. Las pruebas cubren carga, error y reintento en cada página, además de navegación y cambio de estado por rol en Chromium.
 
 `src/theme/variables.scss` define la paleta, la tipografía y las dimensiones compartidas. `src/global.scss` aplica el tema a las listas, las píldoras de estado y los botones. Los estilos de cada página ajustan el monto, las fechas y el selector de rol. `src/app/tabs/tabs.page.scss` personaliza la navegación inferior. `src/index.html` declara español, UTF-8 y carga Inter desde Google Fonts.
 
-`src/app/pages/bienvenida/` contiene la página standalone, la plantilla de acceso de demostración y su estilo.
+`src/app/pages/bienvenida/` contiene la página standalone, la plantilla de acceso de demostración y su estilo. El logo y el punto animan su entrada con CSS y respetan la preferencia de movimiento reducido. Cada pestaña define los colores de su encabezado y su estado vacío.
 
 ## Diez preguntas del docente
 
