@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonButton, IonContent, IonInput, IonSelect, IonSelectOption } from '@ionic/angular';
+import { IonButton, IonContent, IonIcon, IonInput, IonSelect, IonSelectOption } from '@ionic/angular';
+
+import { addIcons } from 'ionicons';
+import { checkmarkCircleOutline } from 'ionicons/icons';
 
 import type { Rol } from '../../models/repara.model';
 import { ReparaService } from '../../services/repara.service';
@@ -10,7 +13,7 @@ import { ReparaService } from '../../services/repara.service';
   standalone: true,
   templateUrl: './bienvenida.page.html',
   styleUrl: './bienvenida.page.scss',
-  imports: [IonButton, IonContent, IonInput, IonSelect, IonSelectOption],
+  imports: [IonButton, IonContent, IonIcon, IonInput, IonSelect, IonSelectOption],
 })
 export class BienvenidaPage {
   rol: Rol;
@@ -20,6 +23,7 @@ export class BienvenidaPage {
     private readonly router: Router,
   ) {
     this.rol = reparaService.rolActivo;
+    addIcons({ checkmarkCircleOutline });
   }
 
   ingresar(evento: SubmitEvent): void {

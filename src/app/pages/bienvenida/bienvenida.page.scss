@@ -1,5 +1,5 @@
 ion-content {
-  --background: radial-gradient(ellipse at top left, #eaf7c9, var(--ion-background-color) 65%);
+  --background: linear-gradient(160deg, #adf02d 0%, var(--ion-color-primary) 37%, var(--ion-background-color) 70%);
 }
 
 .bienvenida {
@@ -15,8 +15,8 @@ ion-content {
   width: min(100%, 440px);
   padding: clamp(22px, 6vw, 36px);
   background: var(--repara-superficie);
-  border-radius: 26px;
-  box-shadow: var(--repara-sombra);
+  border-radius: 24px;
+  box-shadow: var(--repara-sombra-elevada);
 }
 
 h1 {
@@ -28,6 +28,8 @@ h1 {
 }
 
 h1 span {
+  display: inline-block;
+  transform-origin: center 75%;
   color: var(--ion-color-primary);
 }
 
@@ -57,4 +59,54 @@ ion-select {
 ion-button {
   min-height: 48px;
   margin: 0;
+}
+
+.beneficios {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beneficios li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--repara-texto-secundario);
+  font-weight: 600;
+}
+
+.beneficios ion-icon {
+  color: var(--repara-verde-oscuro);
+  font-size: 1.25rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: entrada-logo 550ms ease-out both;
+  }
+
+  h1 span {
+    animation: rebote-punto 450ms 265ms ease-out both;
+  }
+
+  ion-button {
+    transition: transform 140ms ease;
+  }
+
+  ion-button:active {
+    transform: scale(0.97);
+  }
+}
+
+@keyframes entrada-logo {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rebote-punto {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.45); }
+  75% { transform: scale(0.9); }
 }
