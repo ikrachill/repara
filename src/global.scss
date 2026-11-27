@@ -25,13 +25,91 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+/* Tema claro de REPARA */
+ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-width: 0;
+  --color: var(--ion-text-color);
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+ion-header {
+  box-shadow: none;
+}
+
+ion-header::after {
+  display: none;
+}
+
+ion-title {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.bloque-registros {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 4px 16px 16px;
+}
+
+.lista-tarjetas {
+  background: transparent;
+}
+
+.lista-tarjetas ion-item {
+  --background: var(--repara-superficie);
+  --color: var(--ion-text-color);
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  margin-block: 12px;
+  border-radius: var(--repara-radio);
+  box-shadow: var(--repara-sombra);
+}
+
+.lista-tarjetas ion-label {
+  margin-block: 14px;
+}
+
+.lista-tarjetas h2 {
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.lista-tarjetas p {
+  margin-top: 4px;
+  color: var(--repara-texto-secundario);
+}
+
+ion-badge {
+  --background: #fff1cc;
+  --color: #725006;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+  border-radius: 20px;
+  font-weight: 650;
+}
+
+ion-badge[data-estado='en reparación'] {
+  --background: #dceeff;
+  --color: #174a78;
+}
+
+ion-badge[data-estado='presupuestada'] {
+  --background: #eee8ff;
+  --color: #4d377c;
+}
+
+ion-badge[data-estado='finalizada'],
+ion-badge[data-estado='aceptado'] {
+  --background: #e8f5d2;
+  --color: #365315;
+}
+
+ion-button {
+  --border-radius: 20px;
+  --box-shadow: none;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}

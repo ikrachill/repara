@@ -21,7 +21,7 @@
     <ion-button (click)="cargarPresupuestos()">Reintentar</ion-button>
   </div>
 
-  <ng-container *ngIf="!cargando && !error">
+  <section class="bloque-registros" *ngIf="!cargando && !error">
     <ion-card *ngFor="let presupuesto of presupuestos">
       <ion-card-header>
         <ion-card-title>{{ presupuesto.equipo }}</ion-card-title>
@@ -29,10 +29,10 @@
       <ion-card-content>
         <p>Técnico: {{ presupuesto.tecnico }}</p>
         <p>{{ presupuesto.detalle }}</p>
-        <p>Monto: Gs. {{ presupuesto.monto | number:'1.0-0' }}</p>
-        <ion-badge>{{ presupuesto.estado }}</ion-badge>
+        <p class="monto" aria-label="Monto en guaraníes">Gs. {{ presupuesto.monto | number:'1.0-0' }}</p>
+        <ion-badge [attr.data-estado]="presupuesto.estado">{{ presupuesto.estado }}</ion-badge>
       </ion-card-content>
     </ion-card>
     <p *ngIf="!presupuestos.length" class="ion-padding">No hay presupuestos registrados.</p>
-  </ng-container>
+  </section>
 </ion-content>

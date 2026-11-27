@@ -1,0 +1,21 @@
+ion-card {
+  --background: var(--repara-superficie);
+  --color: var(--repara-texto-secundario);
+  margin: 12px 0;
+  border: none;
+  border-radius: var(--repara-radio);
+  box-shadow: var(--repara-sombra);
+}
+
+ion-card-title {
+  --color: var(--ion-text-color);
+  font-weight: 750;
+}
+
+ion-card-content .monto {
+  margin: 10px 0;
+  color: var(--ion-text-color);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}

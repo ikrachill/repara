@@ -21,8 +21,8 @@
     <ion-button (click)="cargarSeguimientos()">Reintentar</ion-button>
   </div>
 
-  <ng-container *ngIf="!cargando && !error">
-    <ion-list *ngIf="seguimientos.length; else sinSeguimientos">
+  <section class="bloque-registros" *ngIf="!cargando && !error">
+    <ion-list class="lista-tarjetas" lines="none" *ngIf="seguimientos.length; else sinSeguimientos">
       <ion-item *ngFor="let seguimiento of seguimientos">
         <ion-label class="ion-text-wrap">
           <h2>{{ seguimiento.equipo }}</h2>
@@ -34,5 +34,5 @@
     <ng-template #sinSeguimientos>
       <p class="ion-padding">No hay novedades de seguimiento.</p>
     </ng-template>
-  </ng-container>
+  </section>
 </ion-content>

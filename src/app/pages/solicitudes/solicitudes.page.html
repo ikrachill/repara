@@ -28,14 +28,14 @@
     <ion-button (click)="cargarSolicitudes()">Reintentar</ion-button>
   </div>
 
-  <ng-container *ngIf="!cargando && !error">
-    <ion-list *ngIf="solicitudes.length; else sinSolicitudes">
+  <section class="bloque-registros" *ngIf="!cargando && !error">
+    <ion-list class="lista-tarjetas" lines="none" *ngIf="solicitudes.length; else sinSolicitudes">
       <ion-item *ngFor="let solicitud of solicitudes">
         <ion-label class="ion-text-wrap">
           <h2>{{ solicitud.equipo }}</h2>
           <p>{{ solicitud.cliente }} · {{ solicitud.fecha }}</p>
           <p>{{ solicitud.descripcion }}</p>
-          <ion-badge>{{ solicitud.estado }}</ion-badge>
+          <ion-badge [attr.data-estado]="solicitud.estado">{{ solicitud.estado }}</ion-badge>
         </ion-label>
         <ion-button *ngIf="rolActivo === 'tecnico' && solicitud.estado !== 'finalizada'"
           slot="end" (click)="avanzarEstado(solicitud)">
@@ -46,5 +46,5 @@
     <ng-template #sinSolicitudes>
       <p class="ion-padding">No hay solicitudes registradas.</p>
     </ng-template>
-  </ng-container>
+  </section>
 </ion-content>
