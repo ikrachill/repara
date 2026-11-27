@@ -10,4 +10,29 @@
       <ion-title size="large">Seguimiento</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngIf="cargando" class="ion-padding" role="status">
+    <ion-spinner aria-hidden="true"></ion-spinner>
+    <p>Cargando seguimientos…</p>
+  </div>
+
+  <div *ngIf="error" class="ion-padding">
+    <p role="alert">{{ error }}</p>
+    <ion-button (click)="cargarSeguimientos()">Reintentar</ion-button>
+  </div>
+
+  <ng-container *ngIf="!cargando && !error">
+    <ion-list *ngIf="seguimientos.length; else sinSeguimientos">
+      <ion-item *ngFor="let seguimiento of seguimientos">
+        <ion-label class="ion-text-wrap">
+          <h2>{{ seguimiento.equipo }}</h2>
+          <p>{{ seguimiento.detalle }}</p>
+          <ion-note>{{ seguimiento.fecha }}</ion-note>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ng-template #sinSeguimientos>
+      <p class="ion-padding">No hay novedades de seguimiento.</p>
+    </ng-template>
+  </ng-container>
 </ion-content>
