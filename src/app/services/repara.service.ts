@@ -34,7 +34,7 @@ export class ReparaService {
         id: -(this.seguimientosSesion.length + 1),
         solicitudId: solicitud.id,
         fecha: new Date().toLocaleDateString('sv-SE'),
-        detalle: `El técnico actualizó el estado del equipo a ${estado}`,
+        detalle: `El técnico actualizó el estado a: ${estado}`,
       });
     }
   }

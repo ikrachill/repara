@@ -70,7 +70,7 @@ test('registra y ordena en Seguimiento los cambios que hace el técnico', async 
   await page.locator('ion-tab-button[tab="seguimiento"]').click();
   await expect(novedades).toHaveCount(6);
   await expect(novedades.first().locator('h2')).toHaveText('Notebook');
-  await expect(novedades.first().locator('p')).toHaveText('El técnico actualizó el estado del equipo a finalizada');
+  await expect(novedades.first().locator('p')).toHaveText('El técnico actualizó el estado a: finalizada');
   await expect(novedades.first().locator('ion-note')).toHaveText('2026-11-24');
 
   await page.locator('ion-tab-button[tab="solicitudes"]').click();
