@@ -16,6 +16,10 @@
 Usar PowerShell y trabajar una fase por autorización. Anunciar el plan, ejecutar `npm run build`, actualizar los documentos y hacer commits lógicos en español con la identidad existente, separando documentación y código. Nunca hacer push. Mantener código sencillo en español, inyectar por constructor, cargar en `ngOnInit` y mantener la misma clave de URL en todos los environments. Angular 22.3.0 exporta `NgFor` y `NgIf`. El alcance es web, con datos locales y rol simulado en el servicio.
 
 
+## Ajustes de cierre
+
+Se restauraron los acentos dañados en el JSON y se aplicó el tema claro a las tres pestañas. El build pasó, las pruebas se ejecutaron en Chromium y se prepararon capturas móviles de la versión final.
+
 ## Auditoría final de la rúbrica
 
 | Criterio e indicador | Resultado | Evidencia |

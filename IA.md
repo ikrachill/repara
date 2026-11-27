@@ -251,5 +251,7 @@ continuar
 
 - Fase 8. Se auditó la rúbrica y se registró la evidencia en `PROGRESO.md`. Pasaron `npm run build`, cinco pruebas unitarias y dos pruebas en Chromium. El build conservó el aviso conocido de Browserslist y se verificó que publique una copia idéntica del JSON. Queda pendiente de verificar la explicación oral del integrante.
 
+- Ajustes de cierre. Se detectaron signos de interrogación literales en los textos de los datos. Se restauraron los caracteres originales, se guardó `repara.json` como UTF-8 y se verificaron los acentos en el build servido en Chromium. Se aplicaron Inter, fondo claro, acentos verde lima, tarjetas sin divisores, estados en píldoras y una barra de pestañas sin borde superior. Al revisar la vista móvil, se aumentó la altura de la barra para que las etiquetas se vieran completas. El build pasó con el aviso conocido de Browserslist.
+
 ## Revisión de los integrantes
 

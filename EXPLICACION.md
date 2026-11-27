@@ -31,6 +31,8 @@ El selector de Solicitudes actualiza `rolActivo` mediante `ionChange`. El botón
 
 La auditoría final y sus rutas de evidencia están en `PROGRESO.md`. Las pruebas cubren carga, error y reintento en cada página, además de navegación y cambio de estado por rol en Chromium.
 
+`src/theme/variables.scss` define la paleta, la tipografía y las dimensiones compartidas. `src/global.scss` aplica el tema a las listas, las píldoras de estado y los botones. Los estilos de cada página ajustan el monto, las fechas y el selector de rol. `src/app/tabs/tabs.page.scss` personaliza la navegación inferior. `src/index.html` declara español, UTF-8 y carga Inter desde Google Fonts.
+
 ## Diez preguntas del docente
 
 1. **¿Qué resuelve REPARA?** Permite solicitar reparaciones, consultar presupuestos y seguir el estado de cada trabajo.
