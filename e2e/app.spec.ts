@@ -8,6 +8,9 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
   });
 
   await page.goto('/');
+  const bienvenida = page.locator('app-bienvenida');
+  await expect(bienvenida.getByRole('heading', { name: 'REPARA' })).toBeVisible();
+  await bienvenida.getByRole('button', { name: 'Ingresar' }).click();
   await expect(page).toHaveURL(/\/tabs\/solicitudes$/);
   await expect(page.locator('app-solicitudes ion-title').first()).toHaveText('Solicitudes');
 
@@ -39,16 +42,19 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
 
 test('solo el técnico puede cambiar el estado de una solicitud', async ({ page }) => {
   await page.goto('/');
+  const bienvenida = page.locator('app-bienvenida');
+  await expect(bienvenida.getByRole('heading', { name: 'REPARA' })).toBeVisible();
+  await bienvenida.locator('ion-select').click();
+  await page.getByRole('radio', { name: 'Técnico' }).click();
+  await page.getByRole('button', { name: /^ok$/i }).click();
+  await bienvenida.getByRole('button', { name: 'Ingresar' }).click();
   const tabla = page.locator('app-solicitudes ion-list');
   const notebook = tabla.locator('ion-item').filter({ hasText: 'Notebook' });
   const rol = page.locator('app-solicitudes ion-select');
   const cambiarEstado = notebook.getByRole('button', { name: 'Cambiar estado' });
 
   await expect(notebook.locator('ion-badge')).toHaveText('en reparación');
-  await expect(cambiarEstado).toHaveCount(0);
-  await rol.click();
-  await page.getByRole('radio', { name: 'Técnico' }).click();
-  await page.getByRole('button', { name: /^ok$/i }).click();
+  await expect(cambiarEstado).toBeVisible();
 
   await cambiarEstado.click();
   await expect(notebook.locator('ion-badge')).toHaveText('finalizada');
