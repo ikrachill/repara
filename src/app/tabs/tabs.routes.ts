@@ -26,9 +26,4 @@ export const routes: Routes = [
       },
     ],
   },
-  {
-    path: '',
-    redirectTo: '/tabs/solicitudes',
-    pathMatch: 'full',
-  },
 ];

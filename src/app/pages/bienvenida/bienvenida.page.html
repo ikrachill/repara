@@ -1,0 +1,25 @@
+<ion-content>
+  <main class="bienvenida">
+    <section class="panel" aria-labelledby="titulo-bienvenida">
+      <h1 id="titulo-bienvenida">REPARA<span aria-hidden="true">.</span></h1>
+      <p>Solicitá reparaciones y seguí su estado.</p>
+
+      <form (submit)="ingresar($event)" autocomplete="off" aria-describedby="modo-demo">
+        <ion-input label="Usuario" labelPlacement="stacked" fill="outline"
+          placeholder="Usuario de prueba" autocomplete="off"></ion-input>
+
+        <ion-input label="Contraseña" labelPlacement="stacked" fill="outline"
+          type="password" placeholder="Opcional" autocomplete="off"></ion-input>
+
+        <ion-select label="Rol" labelPlacement="stacked" fill="outline"
+          [value]="rol" (ionChange)="rol = $event.detail.value">
+          <ion-select-option value="cliente">Cliente</ion-select-option>
+          <ion-select-option value="tecnico">Técnico</ion-select-option>
+        </ion-select>
+
+        <p id="modo-demo">Modo demostración. Podés ingresar sin credenciales.</p>
+        <ion-button type="submit" expand="block">Ingresar</ion-button>
+      </form>
+    </section>
+  </main>
+</ion-content>
