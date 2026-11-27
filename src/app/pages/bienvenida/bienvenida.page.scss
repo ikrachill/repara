@@ -3,12 +3,23 @@ ion-content {
 }
 
 .bienvenida {
+  position: relative;
+  isolation: isolate;
   display: grid;
   min-height: 100%;
   align-items: center;
   justify-items: center;
   padding: calc(24px + var(--ion-safe-area-top, 0px)) 20px
     calc(24px + var(--ion-safe-area-bottom, 0px));
+}
+
+.bienvenida::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/assets/taller-bienvenida.jpg') center / cover no-repeat;
+  opacity: 0.15;
+  content: '';
 }
 
 .panel {
@@ -29,7 +40,6 @@ h1 {
 
 h1 span {
   display: inline-block;
-  transform-origin: center 75%;
   color: var(--ion-color-primary);
 }
 
@@ -84,11 +94,8 @@ ion-button {
 
 @media (prefers-reduced-motion: no-preference) {
   h1 {
-    animation: entrada-logo 550ms ease-out both;
-  }
-
-  h1 span {
-    animation: rebote-punto 450ms 265ms ease-out both;
+    animation: breathe 3s ease-in-out infinite;
+    transform-origin: left center;
   }
 
   ion-button {
@@ -100,13 +107,7 @@ ion-button {
   }
 }
 
-@keyframes entrada-logo {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes rebote-punto {
+@keyframes breathe {
   0%, 100% { transform: scale(1); }
-  45% { transform: scale(1.45); }
-  75% { transform: scale(0.9); }
+  50% { transform: scale(1.02); }
 }
