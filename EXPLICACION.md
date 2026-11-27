@@ -33,7 +33,7 @@ La auditoría final y sus rutas de evidencia están en `PROGRESO.md`. Las prueba
 
 `src/theme/variables.scss` define la paleta, la tipografía y las dimensiones compartidas. `src/global.scss` aplica el tema a las listas, las píldoras de estado y los botones. Los estilos de cada página ajustan el monto, las fechas y el selector de rol. `src/app/tabs/tabs.page.scss` personaliza la navegación inferior. `src/index.html` declara español, UTF-8 y carga Inter desde Google Fonts.
 
-`src/app/pages/bienvenida/` contiene la página standalone, la plantilla de acceso de demostración y su estilo. El logo y el punto respiran en un ciclo CSS de tres segundos y respetan la preferencia de movimiento reducido. Cada pestaña define los colores de su encabezado y su estado vacío.
+`src/app/pages/bienvenida/` contiene la página standalone, la plantilla de acceso de demostración y su estilo. Las letras y el punto del logo forman una ola con retardos de 90 ms en un ciclo CSS de tres segundos y respetan la preferencia de movimiento reducido. Cada pestaña define los colores de su encabezado y su estado vacío.
 
 ## Diez preguntas del docente
 

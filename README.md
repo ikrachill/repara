@@ -34,7 +34,7 @@ Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. L
 | `ion-select`, `ion-select-option` | Eligen el rol en Bienvenida |
 | `ion-input` | Campos de demostración en `src/app/pages/bienvenida/bienvenida.page.html` |
 
-El tema visual de REPARA usa Inter, fondo claro y acentos verde lima. La foto de Bienvenida es de [Sparsh Paliwal en Unsplash](https://unsplash.com/photos/a-workbench-with-tools-hanging-on-the-wall-NQBZ_qzqPyQ).
+El tema visual de REPARA usa Inter, fondo claro y acentos verde lima. La foto de Bienvenida es de [Revendo en Unsplash](https://unsplash.com/photos/a-person-using-a-screwdriver-to-fix-a-cell-phone-Q_I49DIzHu8).
 
 ## Verificación
 

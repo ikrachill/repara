@@ -259,5 +259,7 @@ continuar
 
 - Ajuste final. Se agregó el historial de cambios de sesión y la recarga de Seguimiento al reabrir la pestaña. Se verificó en Chromium que los cambios del mismo día se ordenen del último al primero. Se actualizó Bienvenida con el logo REPARÁ, la animación CSS y una foto de herramientas servida desde `src/assets/taller-bienvenida.jpg`. Pasaron el build, cinco pruebas unitarias y tres pruebas en Chromium.
 
+- Último pulido. Se actualizó el texto automático de Seguimiento y su prueba de navegador. Se reemplazó la foto por una reparación de celular y se aplicó una ola CSS al logo REPARÁ. La primera compilación avisó que la hoja de estilos de Bienvenida superaba su presupuesto. Se simplificaron los retardos con una variable CSS por letra y se volvió a compilar. Se verificaron los retardos y el movimiento reducido en Chromium.
+
 ## Revisión de los integrantes
 
