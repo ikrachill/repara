@@ -8,13 +8,15 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonSelect,
+  IonSelectOption,
   IonSpinner,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular';
 import { finalize } from 'rxjs';
 
-import type { Solicitud } from '../../models/repara.model';
+import type { Rol, Solicitud } from '../../models/repara.model';
 import { ReparaService } from '../../services/repara.service';
 
 @Component({
@@ -23,7 +25,7 @@ import { ReparaService } from '../../services/repara.service';
   styleUrls: ['solicitudes.page.scss'],
   imports: [
     NgFor, NgIf, IonBadge, IonButton, IonContent, IonHeader, IonItem,
-    IonLabel, IonList, IonSpinner, IonTitle, IonToolbar,
+    IonLabel, IonList, IonSelect, IonSelectOption, IonSpinner, IonTitle, IonToolbar,
   ],
 })
 export class SolicitudesPage implements OnInit {
@@ -35,6 +37,25 @@ export class SolicitudesPage implements OnInit {
     private readonly reparaService: ReparaService,
     private readonly detector: ChangeDetectorRef,
   ) {}
+
+  private readonly estados: Solicitud['estado'][] = [
+    'pendiente', 'presupuestada', 'en reparación', 'finalizada',
+  ];
+
+  get rolActivo(): Rol {
+    return this.reparaService.rolActivo;
+  }
+
+  cambiarRol(rol: Rol): void {
+    this.reparaService.rolActivo = rol;
+  }
+
+  avanzarEstado(solicitud: Solicitud): void {
+    const siguiente = this.estados[this.estados.indexOf(solicitud.estado) + 1];
+    if (siguiente) {
+      this.reparaService.cambiarEstado(solicitud, siguiente);
+    }
+  }
 
   ngOnInit(): void {
     this.cargarSolicitudes();

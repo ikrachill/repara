@@ -11,6 +11,13 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="ion-padding-horizontal">
+    <ion-select label="Rol activo" [value]="rolActivo" (ionChange)="cambiarRol($event.detail.value)">
+      <ion-select-option value="cliente">Cliente</ion-select-option>
+      <ion-select-option value="tecnico">Técnico</ion-select-option>
+    </ion-select>
+  </div>
+
   <div *ngIf="cargando" class="ion-padding" role="status">
     <ion-spinner aria-hidden="true"></ion-spinner>
     <p>Cargando solicitudes…</p>
@@ -28,8 +35,12 @@
           <h2>{{ solicitud.equipo }}</h2>
           <p>{{ solicitud.cliente }} · {{ solicitud.fecha }}</p>
           <p>{{ solicitud.descripcion }}</p>
+          <ion-badge>{{ solicitud.estado }}</ion-badge>
         </ion-label>
-        <ion-badge slot="end">{{ solicitud.estado }}</ion-badge>
+        <ion-button *ngIf="rolActivo === 'tecnico' && solicitud.estado !== 'finalizada'"
+          slot="end" (click)="avanzarEstado(solicitud)">
+          Cambiar estado
+        </ion-button>
       </ion-item>
     </ion-list>
     <ng-template #sinSolicitudes>
