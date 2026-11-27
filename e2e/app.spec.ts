@@ -9,7 +9,7 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
 
   await page.goto('/');
   const bienvenida = page.locator('app-bienvenida');
-  await expect(bienvenida.getByRole('heading', { name: 'REPARA' })).toBeVisible();
+  await expect(bienvenida.getByRole('heading', { name: 'REPARÁ' })).toBeVisible();
   await bienvenida.getByRole('button', { name: 'Ingresar' }).click();
   await expect(page).toHaveURL(/\/tabs\/solicitudes$/);
   await expect(page.locator('app-solicitudes ion-title').first()).toHaveText('Solicitudes');
@@ -42,10 +42,11 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
   expect(errores).toEqual([]);
 });
 
-test('solo el técnico puede cambiar el estado de una solicitud', async ({ page }) => {
+test('registra y ordena en Seguimiento los cambios que hace el técnico', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-11-24T12:00:00'));
   await page.goto('/');
   const bienvenida = page.locator('app-bienvenida');
-  await expect(bienvenida.getByRole('heading', { name: 'REPARA' })).toBeVisible();
+  await expect(bienvenida.getByRole('heading', { name: 'REPARÁ' })).toBeVisible();
   await bienvenida.locator('ion-select').click();
   await page.getByRole('radio', { name: 'Técnico' }).click();
   await page.getByRole('button', { name: /^ok$/i }).click();
@@ -57,9 +58,28 @@ test('solo el técnico puede cambiar el estado de una solicitud', async ({ page 
   await expect(notebook.locator('ion-badge')).toHaveText('en reparación');
   await expect(cambiarEstado).toBeVisible();
 
+  const novedades = page.locator('app-seguimiento ion-item');
+  await page.locator('ion-tab-button[tab="seguimiento"]').click();
+  await expect(novedades).toHaveCount(5);
+  await page.locator('ion-tab-button[tab="solicitudes"]').click();
+
   await cambiarEstado.click();
   await expect(notebook.locator('ion-badge')).toHaveText('finalizada');
   await expect(cambiarEstado).toHaveCount(0);
+
+  await page.locator('ion-tab-button[tab="seguimiento"]').click();
+  await expect(novedades).toHaveCount(6);
+  await expect(novedades.first().locator('h2')).toHaveText('Notebook');
+  await expect(novedades.first().locator('p')).toHaveText('El estado cambió a finalizada');
+  await expect(novedades.first().locator('ion-note')).toHaveText('2026-11-24');
+
+  await page.locator('ion-tab-button[tab="solicitudes"]').click();
+  await tabla.locator('ion-item').filter({ hasText: 'Ventilador' })
+    .getByRole('button', { name: 'Cambiar estado' }).click();
+  await page.locator('ion-tab-button[tab="seguimiento"]').click();
+  await expect(novedades).toHaveCount(7);
+  await expect(novedades.first().locator('h2')).toHaveText('Ventilador');
+  await expect(novedades.nth(1).locator('h2')).toHaveText('Notebook');
 
   await page.locator('ion-tab-button[tab="presupuestos"]').click();
   await page.locator('ion-tab-button[tab="solicitudes"]').click();
