@@ -18,7 +18,7 @@ La aplicación usa el archivo local `src/assets/data/repara.json`, con las colec
 
 ## Rol simulado
 
-En Solicitudes, el selector arranca en Cliente. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado. Los cambios se conservan al navegar y se reinician al recargar el navegador.
+Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. El selector de Solicitudes permite cambiar el rol durante la sesión. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado. Los cambios se conservan al navegar y se reinician al recargar el navegador.
 
 ## Componentes Ionic
 
@@ -31,7 +31,8 @@ En Solicitudes, el selector arranca en Cliente. Al elegir Técnico, aparece **Ca
 | `ion-spinner`, `ion-button` | Carga y reintento en las tres pestañas. En Solicitudes, el botón también avanza el estado del registro seleccionado |
 | `ion-card`, `ion-card-header`, `ion-card-title`, `ion-card-content`, `ion-badge` | Equipo, detalle, monto y estado en `src/app/pages/presupuestos/presupuestos.page.html` |
 | `ion-list`, `ion-item`, `ion-label`, `ion-note` | Equipo, detalle y fecha de cada novedad en `src/app/pages/seguimiento/seguimiento.page.html` |
-| `ion-select`, `ion-select-option` | Muestran y actualizan el rol activo en `src/app/pages/solicitudes/solicitudes.page.html` |
+| `ion-select`, `ion-select-option` | Eligen el rol en Bienvenida y permiten cambiarlo en Solicitudes |
+| `ion-input` | Campos de demostración en `src/app/pages/bienvenida/bienvenida.page.html` |
 
 El tema visual de REPARA usa Inter, fondo claro y acentos verde lima.
 

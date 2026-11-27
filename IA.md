@@ -253,5 +253,7 @@ continuar
 
 - Ajustes de cierre. Se detectaron signos de interrogación literales en los textos de los datos. Se restauraron los caracteres originales, se guardó `repara.json` como UTF-8 y se verificaron los acentos en el build servido en Chromium. Se aplicaron Inter, fondo claro, acentos verde lima, tarjetas sin divisores, estados en píldoras y una barra de pestañas sin borde superior. Al revisar la vista móvil, se aumentó la altura de la barra para que las etiquetas se vieran completas. El build pasó con el aviso conocido de Browserslist.
 
+- Bienvenida. Se agregó una página standalone en la ruta raíz con campos simulados, logo tipográfico y selección de rol. Al ingresar se actualiza `rolActivo` y se navega a Solicitudes. Se conservó el selector de Solicitudes y se adaptaron las pruebas para entrar desde Bienvenida.
+
 ## Revisión de los integrantes
 
