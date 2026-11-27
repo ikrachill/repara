@@ -15,6 +15,8 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
   await expect(page.locator('app-solicitudes ion-title').first()).toHaveText('Solicitudes');
 
   await expect(page.locator('app-solicitudes ion-list ion-item')).toHaveCount(5);
+  await expect(page.locator('app-solicitudes ion-select')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Cambiar estado' })).toHaveCount(0);
 
   for (const [ruta, titulo] of [
     ['presupuestos', 'Presupuestos'],
@@ -50,7 +52,6 @@ test('solo el técnico puede cambiar el estado de una solicitud', async ({ page 
   await bienvenida.getByRole('button', { name: 'Ingresar' }).click();
   const tabla = page.locator('app-solicitudes ion-list');
   const notebook = tabla.locator('ion-item').filter({ hasText: 'Notebook' });
-  const rol = page.locator('app-solicitudes ion-select');
   const cambiarEstado = notebook.getByRole('button', { name: 'Cambiar estado' });
 
   await expect(notebook.locator('ion-badge')).toHaveText('en reparación');
@@ -64,11 +65,25 @@ test('solo el técnico puede cambiar el estado de una solicitud', async ({ page 
   await page.locator('ion-tab-button[tab="solicitudes"]').click();
   await expect(notebook.locator('ion-badge')).toHaveText('finalizada');
 
-  await rol.click();
-  await page.getByRole('radio', { name: 'Cliente' }).click();
-  await page.getByRole('button', { name: /^ok$/i }).click();
-  await expect(tabla.getByRole('button', { name: 'Cambiar estado' })).toHaveCount(0);
-
+  await expect(tabla.getByRole('button', { name: 'Cambiar estado' }).first()).toBeVisible();
   await page.reload();
   await expect(notebook.locator('ion-badge')).toHaveText('en reparación');
+});
+
+test('muestra un estado vacío ilustrado en cada pestaña', async ({ page }) => {
+  await page.route('**/assets/data/repara.json', (ruta) =>
+    ruta.fulfill({ json: { solicitudes: [], presupuestos: [], seguimientos: [] } }),
+  );
+  await page.goto('/tabs/solicitudes');
+
+  for (const [ruta, icono, mensaje] of [
+    ['solicitudes', 'document-text-outline', 'No hay solicitudes registradas.'],
+    ['presupuestos', 'receipt-outline', 'No hay presupuestos registrados.'],
+    ['seguimiento', 'time-outline', 'No hay novedades de seguimiento.'],
+  ]) {
+    if (ruta !== 'solicitudes') await page.locator(`ion-tab-button[tab="${ruta}"]`).click();
+    const estado = page.locator(`app-${ruta} .estado-vacio`);
+    await expect(estado).toHaveText(mensaje);
+    await expect(estado.locator(`ion-icon[name="${icono}"] svg`)).toBeVisible();
+  }
 });
