@@ -29,5 +29,10 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
   await expect(tarjetas).toHaveCount(5);
   await expect(tarjetas.first().locator('ion-card-title')).toHaveText('Notebook');
 
+  await page.locator('ion-tab-button[tab="seguimiento"]').click();
+  const novedades = page.locator('app-seguimiento ion-list ion-item');
+  await expect(novedades).toHaveCount(5);
+  await expect(novedades.first().locator('ion-note')).toHaveText('2026-11-24');
+
   expect(errores).toEqual([]);
 });
