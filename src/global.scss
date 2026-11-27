@@ -155,3 +155,21 @@ ion-button {
 .estado-vacio p {
   margin: 0;
 }
+
+app-bienvenida ion-content {
+  --background: linear-gradient(
+    rgba(213, 43, 30, 0.08) 33.33%,
+    rgba(255, 255, 255, 0.08) 33.33% 66.67%,
+    rgba(0, 56, 168, 0.08) 66.67%
+  ) bottom / 100% 180px no-repeat var(--ion-background-color);
+}
+
+app-bienvenida .bienvenida::before {
+  position: absolute;
+  inset: 0 0 0 44%;
+  z-index: -1;
+  background: linear-gradient(rgba(195, 241, 67, 0.08), rgba(195, 241, 67, 0.08)),
+    url('/assets/taller-bienvenida.jpg') center 48% / cover no-repeat;
+  mask-image: linear-gradient(#000 68%, transparent);
+  content: '';
+}
