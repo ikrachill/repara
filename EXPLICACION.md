@@ -1,6 +1,6 @@
 # Explicación de REPARA
 
-## Archivos y decisiones de las fases 1 a 7
+## Archivos y decisiones de las fases 1 a 8
 
 | Archivo o grupo | Función |
 | --- | --- |
@@ -28,6 +28,8 @@ Se eligió standalone para declarar en cada componente las dependencias de su pl
 `seguimiento.page.ts` carga el JSON en `ngOnInit`, ordena una copia de las novedades de más reciente a más antigua y obtiene el equipo por `solicitudId`. `seguimiento.page.html` usa `*ngFor` para listar el equipo, el detalle y la fecha, y `*ngIf` para carga, error y lista vacía. La prueba comprueba el reintento y el orden por fecha.
 
 El selector de Solicitudes actualiza `rolActivo` mediante `ionChange`. El botón de cada solicitud abierta se muestra si el rol es técnico. Al hacer clic, la página elige el siguiente estado y el servicio vuelve a comprobar el rol antes de aplicarlo. El servicio guarda el estado por ID en memoria y lo aplica a las lecturas posteriores del JSON durante la misma sesión.
+
+La auditoría final y sus rutas de evidencia están en `PROGRESO.md`. Las pruebas cubren carga, error y reintento en cada página, además de navegación y cambio de estado por rol en Chromium.
 
 ## Diez preguntas del docente
 

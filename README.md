@@ -33,5 +33,11 @@ En Solicitudes, el selector arranca en Cliente. Al elegir Técnico, aparece **Ca
 | `ion-list`, `ion-item`, `ion-label`, `ion-note` | Equipo, detalle y fecha de cada novedad en `src/app/pages/seguimiento/seguimiento.page.html` |
 | `ion-select`, `ion-select-option` | Muestran y actualizan el rol activo en `src/app/pages/solicitudes/solicitudes.page.html` |
 
+## Verificación
+
+La compilación y las pruebas unitarias se ejecutan con `npm run build` y `npm run test:unit`. Para la prueba de navegador, instalá Chromium con `npx playwright install chromium` y ejecutá `npm run test:e2e`.
+
+La auditoría de la rúbrica está en [PROGRESO.md](PROGRESO.md#auditoría-final-de-la-rúbrica). La guía para explicar el código está en [EXPLICACION.md](EXPLICACION.md).
+
 ## Capturas
 

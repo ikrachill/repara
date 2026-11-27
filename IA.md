@@ -221,6 +221,12 @@ continuar
 continuar
 ~~~
 
+## Prompt de la fase 8
+
+~~~text
+continuar
+~~~
+
 ## Qué se generó y qué se corrigió
 
 - Fase 0. Se verificaron las versiones de las herramientas y las opciones del CLI. El proyecto todavía carecía de dependencias instaladas.
@@ -242,6 +248,8 @@ continuar
 - Fase 6. Se conectó Seguimiento al servicio, se ordenaron las novedades por fecha y se asoció su equipo por `solicitudId`. Se usaron `*ngFor` y `*ngIf`. La primera compilación detectó importaciones de Ionic que faltaban en Seguimiento. Se corrigieron y el build pasó con el aviso conocido de Browserslist. Pasaron las cinco pruebas unitarias y Chromium verificó las cinco novedades y la navegación.
 
 - Fase 7. Se integró el rol simulado en Solicitudes y el cambio de estado en memoria para el técnico. Se documentaron los usos de los componentes conectados a registros, estados de carga y eventos. El build pasó con el aviso conocido de Browserslist. En Chromium se verificaron los permisos de interfaz, la conservación del estado al navegar y su reinicio al recargar.
+
+- Fase 8. Se auditó la rúbrica y se registró la evidencia en `PROGRESO.md`. Pasaron `npm run build`, cinco pruebas unitarias y dos pruebas en Chromium. El build conservó el aviso conocido de Browserslist y se verificó que publique una copia idéntica del JSON. Queda pendiente de verificar la explicación oral del integrante.
 
 ## Revisión de los integrantes
 
