@@ -18,7 +18,7 @@ La aplicación usa el archivo local `src/assets/data/repara.json`, con las colec
 
 ## Rol simulado
 
-Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. Para elegir otro rol, volvé a Bienvenida. El rol se conserva al navegar entre pestañas. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado. Los cambios se conservan al navegar y se reinician al recargar el navegador.
+Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. Para elegir otro rol, volvé a Bienvenida. El rol se conserva al navegar entre pestañas. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado y agrega una novedad con la fecha actual en Seguimiento. Los cambios se conservan al navegar y se reinician al recargar el navegador.
 
 ## Componentes Ionic
 
@@ -34,7 +34,7 @@ Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. L
 | `ion-select`, `ion-select-option` | Eligen el rol en Bienvenida |
 | `ion-input` | Campos de demostración en `src/app/pages/bienvenida/bienvenida.page.html` |
 
-El tema visual de REPARA usa Inter, fondo claro y acentos verde lima.
+El tema visual de REPARA usa Inter, fondo claro y acentos verde lima. La foto de Bienvenida es de [Sparsh Paliwal en Unsplash](https://unsplash.com/photos/a-workbench-with-tools-hanging-on-the-wall-NQBZ_qzqPyQ).
 
 ## Verificación
 

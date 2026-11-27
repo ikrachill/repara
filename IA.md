@@ -257,5 +257,7 @@ continuar
 
 - Pulido de UX. Se animó el logo con CSS, se añadieron beneficios y se movió la elección del rol exclusivamente a Bienvenida. Las pestañas incorporaron encabezados con subtítulos, estados vacíos con íconos y sombras más visibles en Solicitudes y Presupuestos. Las pruebas en Chromium verificaron navegación, rol técnico y los tres estados vacíos.
 
+- Ajuste final. Se agregó el historial de cambios de sesión y la recarga de Seguimiento al reabrir la pestaña. Se verificó en Chromium que los cambios del mismo día se ordenen del último al primero. Se actualizó Bienvenida con el logo REPARÁ, la animación CSS y una foto de herramientas servida desde `src/assets/taller-bienvenida.jpg`. Pasaron el build, cinco pruebas unitarias y tres pruebas en Chromium.
+
 ## Revisión de los integrantes
 

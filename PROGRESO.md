@@ -22,6 +22,8 @@ Se restauraron los acentos dañados en el JSON y se aplicó el tema claro a las 
 
 Se agregó la bienvenida standalone en la raíz, con elección de rol únicamente al ingresar. Las rutas directas y las tres pestañas siguen disponibles. Se añadieron animaciones CSS, encabezados con subtítulos e íconos para los estados vacíos.
 
+Cada cambio de estado ahora genera una novedad de sesión y aparece en Seguimiento al volver a la pestaña. Se agregó una foto local en Bienvenida y el logo pasa a mostrar REPARÁ con una animación continua.
+
 ## Auditoría final de la rúbrica
 
 | Criterio e indicador | Resultado | Evidencia |
