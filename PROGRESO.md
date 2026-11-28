@@ -43,7 +43,7 @@ El JSON trae siete solicitudes. Cliente puede crear otra mediante el formulario 
 | 2. Carga en `ngOnInit`, indicador, error visible y reintento en las tres páginas | CUMPLE | Archivos `*.page.ts`, `*.page.html` y `*.page.spec.ts` en `src/app/pages/` |
 | 3. Al menos siete componentes conectados a datos, bindings y eventos | CUMPLE | `ion-list`, `ion-item`, `ion-label`, `ion-badge`, `ion-button`, `ion-card` e `ion-note` en las plantillas de `src/app/pages/`. La tabla en `README.md` también incluye el selector de rol y el indicador de carga. |
 | 3. Listados con `*ngFor` y estados de interfaz con `*ngIf` | CUMPLE | `src/app/pages/solicitudes/solicitudes.page.html`, `src/app/pages/presupuestos/presupuestos.page.html`, `src/app/pages/seguimiento/seguimiento.page.html` |
-| 4. README con integrantes, fuente, ejecución, tabla y sección Capturas vacía | CUMPLE | `README.md` |
+| 4. README con integrantes, fuente, ejecución, tabla y guía visual de Capturas | CUMPLE | `README.md` |
 | 4. Commits progresivos, descriptivos y con documentación separada | CUMPLE | Historial local de Git (`.git/logs/HEAD`), desde el scaffold hasta esta auditoría |
 | 5. Trabajo original adaptado al tema y documentado para la defensa | CUMPLE | `src/assets/data/repara.json`, `src/app/pages/`, `EXPLICACION.md` |
 | 5. Capacidad del integrante para explicar el código | NO CUMPLE | Pendiente de verificar en la defensa. `EXPLICACION.md` contiene diez preguntas con respuestas. |

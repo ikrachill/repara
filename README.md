@@ -46,3 +46,42 @@ La auditoría de la rúbrica está en [PROGRESO.md](PROGRESO.md#auditoría-final
 
 ## Capturas
 
+### Pantalla de Bienvenida
+
+- **bienvenida-onda.png**: Logo de REPARÁ y fondo con la bandera paraguaya degradada. El logo y el fondo se animan en la aplicación.
+
+  ![Logo de REPARÁ y fondo con la bandera paraguaya degradada. El logo y el fondo se animan en la aplicación.](src/assets/img/capturas/bienvenida-onda.png)
+
+### Rol Cliente y Técnico
+
+- **solicitudes-tecnico.png**: Vista del Técnico con los botones para cambiar el estado.
+
+  ![Vista del Técnico con los botones para cambiar el estado.](src/assets/img/capturas/solicitudes-tecnico.png)
+
+- **nueva-solicitud.png**: Formulario que el Cliente abre con el botón flotante para crear un pedido.
+
+  ![Formulario que el Cliente abre con el botón flotante para crear un pedido.](src/assets/img/capturas/nueva-solicitud.png)
+
+- **presupuestos.png**: Vista de Presupuestos disponible para el Cliente.
+
+  ![Vista de Presupuestos disponible para el Cliente.](src/assets/img/capturas/presupuestos.png)
+
+### Sistema de Notificaciones (Badges)
+
+- **aviso-presupuesto.png**: Badge rojo en Presupuestos que indica una nueva estimación.
+
+  ![Badge rojo en Presupuestos que indica una nueva estimación.](src/assets/img/capturas/aviso-presupuesto.png)
+
+- **aviso-seguimiento.png**: Badge rojo en Seguimiento que indica una novedad.
+
+  ![Badge rojo en Seguimiento que indica una novedad.](src/assets/img/capturas/aviso-seguimiento.png)
+
+### Flujo de Presupuestos y Seguimiento
+
+- **presupuesto-nuevo.png**: Presupuesto recién generado y resaltado en la lista.
+
+  ![Presupuesto recién generado y resaltado en la lista.](src/assets/img/capturas/presupuesto-nuevo.png)
+
+- **seguimiento-actualizado.png**: Novedad que aparece en Seguimiento tras cambiar el estado de una solicitud.
+
+  ![Novedad que aparece en Seguimiento tras cambiar el estado de una solicitud.](src/assets/img/capturas/seguimiento-actualizado.png)
