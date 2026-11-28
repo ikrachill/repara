@@ -265,5 +265,7 @@ continuar
 
 - Se suavizó el fondo inferior con un degradado de los colores de Paraguay al 12 %. En Chromium se verificó que Cambiar estado sigue disponible para el técnico en solicitudes abiertas, que el cliente no lo ve y que el cambio aparece en Seguimiento.
 
+- Ajuste de presupuestos. Se agregó una estimación de prueba cuando una solicitud pasa a presupuestada. Se verificaron su monto y aparición al volver a Presupuestos, el toast y el resaltado de las novedades. Se suavizó el botón de estado y se aplicó el fondo tricolor curvo. El build pasó con el aviso conocido de Browserslist. Pasaron cinco pruebas unitarias y cuatro pruebas en Chromium.
+
 ## Revisión de los integrantes
 

@@ -18,7 +18,7 @@ La aplicación usa el archivo local `src/assets/data/repara.json`, con las colec
 
 ## Rol simulado
 
-Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. Para elegir otro rol, volvé a Bienvenida. El rol se conserva al navegar entre pestañas. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado y agrega una novedad con la fecha actual en Seguimiento. Los cambios se conservan al navegar y se reinician al recargar el navegador.
+Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. Para elegir otro rol, volvé a Bienvenida. El rol se conserva al navegar entre pestañas. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado, muestra una confirmación y agrega una novedad en Seguimiento. Al pasar a presupuestada se crea una estimación de prueba de Gs. 150.000. Los registros nuevos se resaltan al abrir sus pestañas. Los cambios se conservan al navegar y se reinician al recargar el navegador.
 
 ## Componentes Ionic
 
