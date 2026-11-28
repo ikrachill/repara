@@ -14,7 +14,7 @@ test('navega entre las tres pestañas sin errores', async ({ page }) => {
   await expect(page).toHaveURL(/\/tabs\/solicitudes$/);
   await expect(page.locator('app-solicitudes ion-title').first()).toHaveText('Solicitudes');
 
-  await expect(page.locator('app-solicitudes ion-list ion-item')).toHaveCount(5);
+  await expect(page.locator('app-solicitudes ion-list ion-item')).toHaveCount(7);
   await expect(page.locator('app-solicitudes ion-select')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Cambiar estado' })).toHaveCount(0);
 
@@ -144,4 +144,48 @@ test('genera y resalta un presupuesto al presupuestar una solicitud', async ({ p
   await pestana('presupuestos').click();
   await expect(tarjetas).toHaveCount(6);
   await expect(tarjetas.first()).not.toHaveClass(/registro-nuevo/);
+});
+
+test('crea una solicitud como cliente y notifica su presupuesto como técnico', async ({ page }) => {
+  await page.goto('/login');
+  await page.getByRole('button', { name: 'Ingresar' }).click();
+  const nuevaSolicitud = page.getByRole('button', { name: 'Nueva solicitud' });
+  await nuevaSolicitud.click();
+
+  const modal = page.locator('ion-modal');
+  await expect(modal.getByRole('button', { name: 'Guardar' })).toBeDisabled();
+  await modal.locator('ion-input[name="equipo"] input').fill('Cafetera');
+  await modal.locator('ion-textarea[name="problema"] textarea').fill('No calienta el agua.');
+  await modal.locator('ion-input[name="cliente"] input').fill('Nora Ruiz');
+  await modal.getByRole('button', { name: 'Guardar' }).click();
+  await expect(modal).toBeHidden();
+
+  const solicitud = page.locator('app-solicitudes ion-item').filter({ hasText: 'Cafetera' });
+  await expect(solicitud.locator('ion-badge')).toHaveText('pendiente');
+  await expect(solicitud).toContainText('Nora Ruiz');
+  await expect(solicitud.getByRole('button', { name: 'Cambiar estado' })).toHaveCount(0);
+
+  const cerrarSesion = page.getByRole('button', { name: 'Cerrar sesión' });
+  await cerrarSesion.click();
+  await expect(page).toHaveURL(/\/login$/);
+  await page.locator('app-bienvenida ion-select').click();
+  await page.getByRole('radio', { name: 'Técnico' }).click();
+  await page.getByRole('button', { name: /^ok$/i }).click();
+  await page.getByRole('button', { name: 'Ingresar' }).click();
+
+  await expect(nuevaSolicitud).toHaveCount(0);
+  const tab = page.locator('ion-tab-button[tab="presupuestos"]');
+  const aviso = tab.locator('ion-badge[color="danger"]');
+  await expect(aviso).toHaveCount(0);
+  await solicitud.getByRole('button', { name: 'Cambiar estado' }).click();
+  await expect(solicitud.locator('ion-badge')).toHaveText('presupuestada');
+  await expect(aviso).toHaveText('1');
+  await tab.click();
+  await expect(aviso).toHaveCount(0);
+  await expect(page.locator('app-presupuestos ion-card-title').first()).toHaveText('Cafetera');
+
+  await page.locator('ion-tab-button[tab="solicitudes"]').click();
+  await cerrarSesion.click();
+  await expect(page).toHaveURL(/\/login$/);
+  await expect(page.locator('app-bienvenida ion-select')).toHaveJSProperty('value', 'cliente');
 });

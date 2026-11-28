@@ -1,6 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
 import { SolicitudesPage } from './solicitudes.page';
@@ -8,7 +9,7 @@ import { SolicitudesPage } from './solicitudes.page';
 describe('SolicitudesPage', () => {
   it('muestra la carga y permite reintentar después de un error', async () => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
     const http = TestBed.inject(HttpTestingController);
     const fixture = TestBed.createComponent(SolicitudesPage);
@@ -20,7 +21,9 @@ describe('SolicitudesPage', () => {
     await fixture.whenStable();
     expect(pagina.querySelector('[role="alert"]')?.textContent).toContain('No se pudieron cargar');
 
-    pagina.querySelector('ion-button')?.click();
+    const reintentar = Array.from(pagina.querySelectorAll('ion-button'))
+      .find((boton) => boton.textContent?.trim() === 'Reintentar');
+    reintentar?.click();
     http.expectOne(environment.urlRepara).flush({
       solicitudes: [{
         id: 1,
