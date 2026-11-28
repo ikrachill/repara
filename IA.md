@@ -1,277 +1,229 @@
-# Uso de IA en REPARA
+# Uso de IA en REPARÁ
 
-Herramienta indicada para el proyecto: Codex en VS Code.
+**Herramienta utilizada:** Codex en VS Code. El reparto que declaro es una estimación del trabajo total. Codex aportó el **40 %** en diseño e implementación de lógica puntual. Mi aporte, como **Fabián Giménez**, fue del **60 %**.
 
-## Instrucciones del proyecto
+## Soluciones de lógica que resolvió la IA
 
+- **Presupuesto automático.** Si una solicitud pasaba a presupuestada, faltaba su registro en Presupuestos. Codex agregó la creación de una estimación vinculada por `solicitudId` y conectó el aviso de presupuesto nuevo.
+- **Novedades de seguimiento.** Los cambios de estado quedaban visibles solo en Solicitudes. Codex hizo que el servicio genere una novedad con la fecha local y que Seguimiento la muestre al volver a abrir la pestaña.
 
-~~~text
-# Reglas permanentes del proyecto (Ionic + Angular)
+## Prompts utilizados para el diseño
 
-Este archivo se lee en cada sesión. Estas reglas tienen prioridad sobre
-cualquier suposición tuya. Si una regla choca con la realidad técnica
-(por ejemplo, una versión que no la soporta), NO improvises en silencio:
-informalo, proponé la alternativa mínima y registralo en IA.md.
-
-## Entorno
-- Sistema: Windows (PowerShell). Usá comandos compatibles con PowerShell.
-- Herramientas ya instaladas: Angular CLI 22.3.0, Node.js 26.13.1,
-  npm 12.2.3, Ionic CLI 7.2.1. No instales nada global.
-- Si `ionic start` falla por incompatibilidad de versiones, la alternativa
-  mínima es `ng new` + agregar `@ionic/angular`; registralo en IA.md.
-
-## Rúbrica que este proyecto debe cumplir (20 puntos)
-1. Estructura y navegación (3): 3 tabs funcionales, renombradas, con
-   íconos propios; sin errores al navegar; carpetas services/ y páginas.
-2. Servicios JSON (4): providedIn 'root', inyección por constructor, datos
-   en ngOnInit, URL en AMBOS environments, indicador de carga y error.
-3. Componentes Ionic (4): al menos 5 distintos (sin contar header, toolbar,
-   content ni tabs), integrados con datos (*ngFor, bindings, eventos).
-4. Repositorio (3): README completo y commits progresivos con mensajes
-   descriptivos (no un commit único al final).
-5. Trabajo original (3): cada integrante debe poder explicar el código.
-6. IA evidenciable (3): IA.md con herramienta, prompts, qué se generó y qué
-   se corrigió.
-- Si `npm run build` falla, el proyecto pierde puntaje. Compilar siempre.
-
-## Método de trabajo
-- Entregá código mínimo, correcto y verificado. Nada de funciones,
-  dependencias ni patrones que no estén pedidos.
-- Trabajá por fases. Antes de codificar una fase, enunciá el plan en 5
-  líneas como máximo. Al cerrarla:
-  1. ejecutá `npm run build` y corregí hasta que compile sin errores;
-  2. actualizá PROGRESO.md, IA.md y EXPLICACION.md;
-  3. hacé los commits correspondientes (ver sección Git);
-  4. informá en 8 líneas como máximo y DETENTE hasta que el usuario escriba
-     "continuar".
-- Economía de tokens: leé solo los archivos que vas a tocar; no pegues
-  salidas largas de consola; no repitas el código en tus respuestas;
-  no hagas ciclos de revisión visual salvo que se pidan.
-- Prohibido: --force, --legacy-peer-deps sin avisar antes, `git push`
-  (de cualquier tipo), `git reset --hard`, `git rebase`, `git commit --amend`
-  sobre commits ya hechos, modificar fechas de commits (--date), cambiar la
-  identidad de git, instalar globalmente, borrar archivos que no creaste.
-
-## Complejidad permitida (el grupo debe poder explicarlo todo)
-- Sin NgRx ni signals avanzados. RxJS solo lo básico: subscribe, map,
-  catchError, finalize.
-- Sin librerías extra aparte de Ionic y Angular.
-- Nombres claros en español. Comentarios breves, en español simple, solo
-  donde la lógica no sea obvia.
-- Sin pagos ni autenticación. El rol activo se simula con una variable en
-  el servicio (`rolActivo`), solo para la UI.
-
-## Estructura y navegación
-- 3 tabs con archivos, clases, selectores y rutas renombrados según el tema
-  (no solo la etiqueta visible). Eliminá todo resto de la plantilla
-  (tab1, tab2, tab3, explore-container y cualquier referencia sobrante).
-- Íconos semánticos, distintos de los de la plantilla.
-- Carpetas: src/app/services/, src/app/models/ y src/app/pages/.
-- Sin errores de consola al navegar entre tabs.
-- El scaffold de `ionic start` crea una subcarpeta con el nombre del
-  proyecto. La raíz del repositorio debe ser la raíz de la app: mover el
-  contenido de la subcarpeta a la raíz de la carpeta de trabajo, eliminar
-  la subcarpeta vacía, y recién entonces inicializar git. Los .md del
-  proyecto viven en la raíz de la app.
-
-## Servicios JSON
-- @Injectable({ providedIn: 'root' }) e inyección por constructor
-  (NO uses inject()). Un servicio por fuente de datos (si hay una sola fuente, un solo servicio).
-- REPARA usa un único JSON local con tres colecciones (solicitudes,
-  presupuestos, seguimientos). Un solo `ReparaService` con
-  `providedIn: 'root'` las expone; no crear un servicio por colección.
-- Si no existen, generá los environments con `ng generate environments`.
-  La URL de cada fuente va con la MISMA clave en TODOS los archivos de
-  environment. Nunca escribas la URL directamente en el servicio.
-- Cargá los datos en ngOnInit. Modelos con interfaces tipadas en models/.
-- Variables `cargando` y `error`: ion-spinner o ion-skeleton-text mientras
-  carga; mensaje de error visible con botón de reintento si falla.
-- Si el JSON es local, ubicalo en src/assets/data/ y verificá que el build
-  lo sirva (si la plantilla usa public/, avisalo y resolvelo).
-- Usá *ngFor y *ngIf. Si no existen en la versión instalada, usá @for y @if
-  y registralo en IA.md y README.md.
-
-## Componentes Ionic
-- Al menos 7 componentes distintos (no cuentan header, toolbar, content,
-  tabs, tab-bar ni tab-button), cada uno con datos reales: bindings y
-  eventos. Nada puramente decorativo.
-- En el README, una tabla: componente y dónde se usa.
-
-## Git
-- Formato del mensaje: `tipo: descripción` o `tipo(alcance): descripción`.
-- Tipos permitidos (y solo estos):
-  - feat: nuevas funcionalidades.
-  - fix: correcciones de errores.
-  - docs: documentación.
-  - style: cambios visuales.
-  - refactor: mejoras internas del código.
-  - test: pruebas.
-  - chore: mantenimiento (configuración, dependencias, .gitignore).
-- Descripción en español, minúscula inicial, verbo en presente
-  ("agrega", "corrige"), concreta, sin punto final, máximo 72 caracteres
-  en total. Sin emojis, sin firmas ni trailers automáticos.
-- Ejemplos válidos:
-  - chore: inicializa proyecto ionic con plantilla tabs
-  - chore: agrega .gitignore y excluye node_modules
-  - feat: agrega servicio y modelo de datos
-  - fix: corrige la ruta de la segunda pestaña
-  - style: ajusta el espaciado de las tarjetas
-  - docs: completa la tabla de componentes en el readme
-- Un commit por cambio lógico. No mezclar tipos: la documentación va en
-  commits `docs` separados del código. Apuntá a unos 15–25 commits en total,
-  nunca un commit enorme por fase.
-- Solo commiteá si `npm run build` pasa. Usá la identidad de git ya
-  configurada. Nunca hagas push; el usuario lo hará.
-- .gitignore correcto desde el primer commit (node_modules, www, dist,
-  .angular).
-
-## Documentos (se mantienen actualizados en cada fase)
-- README.md: nombre del proyecto, integrantes, fuente de datos, cómo
-  ejecutarlo, tabla de componentes y una sección "Capturas" vacía.
-- IA.md: herramienta (Codex), prompts principales (literales, incluidos
-  este AGENTS.md y el prompt de inicio), qué se generó, qué falló y cómo se
-  corrigió. Solo hechos reales; lo incierto va como "pendiente de verificar".
-  Sección final "Revisión de los integrantes" vacía, para completar a mano.
-- EXPLICACION.md: qué hace cada archivo, decisiones tomadas y 10 preguntas
-  probables del docente con su respuesta.
-- PROGRESO.md: fases hechas, fase actual, pendientes y estas reglas
-  resumidas, de modo que otra herramienta pueda continuar el trabajo sin
-  pérdida de contexto.
-
-## Fases
-0. Diagnóstico, sin código ni commits.
-1. Scaffold con plantilla tabs; la raíz del repositorio es la raíz de la
-   app; git init y primer commit.
-2. Tabs renombradas, íconos propios y carpetas.
-3. Environments, modelos y servicio.
-4. Contenido de la pestaña 1.
-5. Contenido de la pestaña 2.
-6. Contenido de la pestaña 3.
-7. Completar componentes (mínimo 7) y manejo de carga y error.
-8. Documentos finales y auditoría contra la rúbrica: por cada indicador,
-   CUMPLE o NO CUMPLE, con la ruta del archivo como evidencia.
-~~~
-
-## Prompt de inicio
+### Codificación y rediseño general
 
 ~~~text
-Leé AGENTS.md y ejecutá SOLO la Fase 0, sin escribir código ni hacer commits.
-Informá: las versiones instaladas; las opciones y el comando exacto de
-`ionic start` para Angular con plantilla tabs (indicá si crea módulos o
-componentes standalone y cuál conviene para cumplir las reglas de
-AGENTS.md); si *ngFor está disponible en el @angular/common instalado;
-y cualquier riesgo de compatibilidad entre Ionic y Angular 22.
-Detenete y esperá mi "continuar".
+Tenemos dos tareas de diseño antes de cerrar el proyecto:
 
-PROYECTO
-- Tema: REPARA — plataforma simple de gestión de reparaciones. Un cliente
-  pide una reparación, un técnico pasa un presupuesto y se sigue el estado
-  del trabajo. Sin pagos, sin login, sin backend. Datos locales.
-- Fuente JSON: archivo local src/assets/data/repara.json con tres
-  colecciones: solicitudes, presupuestos y seguimientos, relacionadas por
-  solicitudId.
-- Tabs: Solicitudes · Presupuestos · Seguimiento
-- Integrantes (solo para el README): Fabián Giménez
-- Herramienta de IA (para IA.md): Codex en VS Code.
+1. URGENTE: En la pestaña Seguimiento, los textos muestran signos de interrogación en lugar de tildes y eñes (ej: "diagn?stico"). Corregí la codificación del archivo JSON a UTF-8 y asegurate de que los acentos se lean bien en toda la app.
+
+2. REDISEÑO VISUAL (Estilo UENO Bank): Quiero cambiar el diseño por defecto de Ionic a algo mucho más moderno, con estas reglas:
+  - Tipografía: Usá la fuente 'Inter' o 'Poppins' (importala desde Google Fonts en index.html o global.scss).
+  - Colores: Definí una paleta en variables.scss. Fondo claro (ej: #F8F9FA) y un color primario fuerte para los acentos (ej: un verde lima o amarillo brillante).
+  - Tarjetas (Presupuestos): Fondo blanco, sin bordes (border: none), sombra súper suave (box-shadow: 0 4px 12px rgba(0,0,0,0.05)) y border-radius grande (16px). El monto en guaraníes que sea grande y en negrita.
+  - Listas (Solicitudes y Seguimiento): Sin líneas divisorias. Cada ítem debe verse como una tarjeta limpia.
+  - Badges (estados): Que parezcan píldoras (border-radius: 20px). Fondo del color del estado pero con opacidad baja, y el texto del color fuerte (ej: "en reparación" en fondo celeste claro con texto azul oscuro).
+  - Tabs: Ocultá la línea superior. Fondo blanco, íconos un poco más grandes.
+  - Selector de Rol: Que parezca un botón moderno, no un select nativo.
+
+Hacelo de forma global (global.scss, variables.scss) y en los CSS de cada página. Compilá, arreglá lo que falle y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 1
+### Pantalla de bienvenida
 
 ~~~text
-continuar
+Quiero agregar una capa de presentación antes de las tabs para darle un toque más profesional, sin romper la estructura actual ni la rúbrica.
 
-Antes de hacer git init: mové todo el contenido de la subcarpeta repara/
-a la raíz de TP-miapp/, borrá la subcarpeta vacía, y recién ahí inicializá
-git. La raíz del repo debe ser TP-miapp/, con AGENTS.md adentro.
+Tareas:
+1. Crear una nueva página standalone llamada `login` (o `bienvenida`).
+2. Modificar el archivo de rutas principal (`app.routes.ts` o donde esté el ruteo de las tabs) para que la ruta raíz (`''`) apunte a esta nueva página de Login. Al hacer clic en un botón "Ingresar", debe redirigir a `/tabs/solicitudes`.
+3. En la página de Login, agregar:
+  - Un logo tipográfico elegante para REPARA (usando HTML y CSS, sin imágenes externas). Que tenga el estilo UENO (colores claros, verde lima).
+  - Campos falsos de "Usuario" y "Contraseña" usando `ion-input`.
+  - Un selector para elegir el rol (Cliente o Técnico), que al hacer clic en "Ingresar" actualice la variable `rolActivo` en el `ReparaService`.
+4. IMPORTANTE: Mantener el selector de rol dentro de la pestaña de Solicitudes por si acaso, o quitarlo si el Login ya lo define (elegí la opción más limpia).
+5. Verificar que al compilar (`npm run build`) todo siga funcionando, que las tabs sigan navegando bien y que el diseño siga siendo coherente.
+
+Hacelo, compilá y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 2
+### Animación inicial, encabezados y estados vacíos
 
 ~~~text
-continuar
+Quiero pulir un par de detalles de UX para que la app se sienta más real, vívida y no tan vacía. No rompas la rúbrica (seguimos con 3 tabs):
+
+1. LOGIN (Estilo Ueno Bank con animación):
+  - En lugar de un fondo blanco/gris, usá un fondo con un gradiente o un color sólido verde lima vibrante en la parte superior, y la tarjeta blanca flotando por encima con bordes bien redondeados (border-radius: 24px) y una sombra suave.
+  - Agregá una lista de 3 beneficios con iconos (ej: `checkmark-circle-outline`): "Solicitá reparaciones", "Recibí presupuestos" y "Seguí el estado".
+  - ANIMACIÓN: Hacé que el logo "REPARA" tenga una animación de entrada elegante usando CSS puro (fade-in + slide-up). Además, que el punto verde lima del logo haga un pequeño "pop" (rebote) usando `@keyframes`. El botón de "Ingresar" debe tener un efecto de escala al presionarlo (`:active`).
+
+2. ROL REDUNDANTE:
+  - Eliminá el selector de rol de la pestaña de Solicitudes (ya que ahora se elige en el Login). Asegurate de que el rol elegido en el Login se mantenga y funcione bien para mostrar u ocultar el botón de cambiar estado.
+
+3. DARLE "ALMA" Y COLOR A LAS TABS:
+  - En los headers de las 3 pestañas, poné un fondo de color suave y los títulos en negrita bien marcados. Agregá un subtítulo en gris oscuro debajo (ej: en Presupuestos: "Consultá los costos de tus reparaciones").
+  - Usá iconos grandes y coloridos para los estados vacíos (si no hay datos).
+  - Asegurate de que las tarjetas de Solicitudes y Presupuestos tengan una sombra un poquito más notoria para que "floten" sobre el fondo, igual que en la app de Ueno.
+
+Hacelo, compilá, probá y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 3
+### Foto de fondo, respiración del logo y contraste
 
 ~~~text
-continuar
+Tenemos que corregir un error de lógica y darle los toques finales al diseño. Prestá mucha atención:
+
+1. BUG DE SEGUIMIENTO (Lógica):
+  - Actualmente, cuando el técnico cambia el estado de una solicitud, este cambio no se refleja en la pestaña Seguimiento.
+  - Arreglo: En el método que actualiza el estado de la solicitud en el ReparaService, agregá también una nueva novedad al arreglo de `seguimientos`. Debe tener el ID de la solicitud, la fecha actual, y un texto como "El estado cambió a [nuevo_estado]". Asegurate de que esta nueva novedad aparezca primera en la lista de Seguimiento (ordenada por fecha).
+
+2. DISEÑO DE LOGIN - Fondo y Animación:
+  - Cambiá el texto del logo a "REPARÁ" (con acento en la A final).
+  - Fondo: Agregá una imagen de fondo (podés usar una URL de Unsplash de herramientas o reparaciones) que cubra toda la pantalla, pero con una capa de opacidad muy baja (ej: opacity: 0.1 o 0.15) o un filtro, para que no compita con la tarjeta blanca. El fondo debe sentirse vivo pero sutil.
+  - Animación: Quitá la animación de entrada simple. En su lugar, hacé que el logo "REPARÁ" (y el punto verde) tengan una animación de "respiración" infinita en loop (que crezca un 2% y vuelva a su tamaño original suavemente, usando `@keyframes` con `animation: breathe 3s ease-in-out infinite`).
+
+3. ELIMINAR SELECTOR REDUNDANTE:
+  - Revisá que el selector de rol en la pestaña de Solicitudes ya no esté visible (ya que el rol se define en el Login).
+
+4. PULIR DISEÑO DE TABS:
+  - En los headers de las tabs, asegurate de que los subtítulos tengan un contraste lindo y que las tarjetas mantengan la sombra suave que pedimos antes.
+
+Compilá, probá que el flujo de cambiar estado en Solicitudes actualice Seguimiento, y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 4
+### Foto de una reparación y ola del logo
 
 ~~~text
-continuar
+Tenemos los últimos ajustes de diseño y lógica. Necesito que corrijas tres cosas:
+
+1. TEXTO DE SEGUIMIENTO:
+  - En el método del ReparaService que actualiza el estado de una solicitud, cambiá el texto automático que se genera. En lugar de "El estado cambió a [estado]", generá algo más natural: "El técnico actualizó el estado del equipo a [estado]". Asegurate de que respete las mayúsculas.
+
+2. FONDO DE LOGIN:
+  - La imagen actual (herramientas verdes) no se entiende y tapa toda la pantalla.
+  - Cambiala por una imagen de Unsplash que muestre a un técnico trabajando (manos con herramientas, o una persona arreglando algo), asegurándote de que la imagen se centre en el rostro/acción.
+  - El filtro verde lima que usás encima de la imagen debe ser más sutil (bajale la opacidad) para que la foto se vea clara, pero manteniendo la tarjeta blanca del login resaltando por encima.
+
+3. ANIMACIÓN DEL LOGO (Secuencial):
+  - Quitá la animación de "respiración" actual.
+  - Quiero que cada letra de la palabra "REPARÁ." se mueva de forma secuencial (efecto ola o rebote).
+  - Para hacerlo, vas a tener que separar el logo en etiquetas `<span>` individuales (ej: `<span>R</span><span>E</span>...`).
+  - Usá `@keyframes` con un `animation-delay` incremental para cada letra, de modo que suban y bajen una tras otra en loop infinito. Hacelo de forma suave y minimalista (que no parezca una feria).
+
+Compilá, probá y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 5
+### Difuminado de la foto y bandera
 
 ~~~text
-continuar
+Quedó espectacular, pero necesitamos dos ajustes finales de pulido:
+
+1. TEXTOS DE SEGUIMIENTO (Humanizar):
+  - Siguen sonando muy técnicos. Cambiá la lógica en el servicio para que cuando se actualice el estado, el mensaje diga: "El técnico actualizó el estado a: [estado]". Usá etiquetas HTML en el string (ej: `<strong>`) si es necesario, para resaltar el nombre del estado. Que se lea natural.
+
+2. FONDO DE BIENVENIDA (Degradado y Bandera):
+  - La imagen del técnico está muy buena, pero el corte recto abajo queda mal. Aplicá un degradado (usando `mask-image` o un `linear-gradient` con `transparent`) en la parte inferior de la imagen para que se difumine suavemente sobre el fondo de la pantalla.
+  - En la parte inferior de la pantalla (detrás de la tarjeta blanca), agregá la bandera de Paraguay (podés usar un color sólido o una imagen) pero con una opacidad del 5% o 10% (muy clarita) para que llene el espacio vacío y le dé identidad sin quitar protagonismo.
+
+Compilá, probá y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 6
+### Degradado continuo de la bandera
 
 ~~~text
-continuar
+Dos correcciones finales, por favor:
+
+1. BOTÓN DE CAMBIAR ESTADO:
+  - Desapareció el botón "Cambiar estado" en Solicitudes. Verificá que el botón siga existiendo y que solo se muestre cuando el rol activo es 'tecnico'. Si al loguearse como técnico no aparece, restablecé la lógica para que vuelva a funcionar.
+
+2. FONDO DE BIENVENIDA (Bandera con degradado):
+  - La franja de la bandera de Paraguay quedó muy dura y fea.
+  - Quitá la imagen de la bandera y, en su lugar, usá un degradado CSS (`linear-gradient`) en la parte inferior de la pantalla.
+  - Ese degradado debe llevar los colores de la bandera (rojo, blanco y azul) pero con una opacidad muy baja (entre 10% y 15%), para que se vea como un resplandor sutil que ocupe todo el ancho de la pantalla. Asegurate de que el texto y la tarjeta blanca sigan siendo los protagonistas.
+
+Compilá, probá logueándote como técnico para confirmar que el botón funciona, y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 7
+### Bandera curva, botón, toast y resaltado
 
 ~~~text
-continuar
+Vamos a hacer los últimos ajustes de nivel profesional (lógica y UI). Prestá mucha atención a estos 4 puntos:
+
+1. FONDO DE BIENVENIDA (Bandera con curva y más color):
+  - La bandera de Paraguay se ve muy transparente. Subile la opacidad (al 30% o 40%) para que los colores rojo, blanco y azul se distingan mejor.
+  - En lugar de un corte recto, usá un pseudo-elemento (`::before` o `::after`) con `border-radius: 50% 50% 0 0 / 20px 20px 0 0;` (o similar) para crear una curva sutil (parábola invertida) en la parte superior de la bandera, como si fuera una ola suave.
+
+2. BOTONES DE "CAMBIAR ESTADO" (Diseño Profesional):
+  - En la pestaña Solicitudes, cambiá el estilo del botón de cambiar estado. Que no sea un botón plano. Usá un `ion-button` con `fill="solid"`, color primario suave, íconos (como `sync-outline` o `create-outline`) y bordes bien redondeados (`border-radius: 20px`). Que se vea como un botón de acción premium.
+
+3. BUG LÓGICO (Solicitud a Presupuesto):
+  - Actualmente, si una solicitud pasa a "presupuestada", no se refleja en la pestaña Presupuestos.
+  - Arreglo: En el `ReparaService`, cuando se actualice el estado de una solicitud a "presupuestada" (o "en revisión"), generá automáticamente un nuevo objeto en el arreglo de `presupuestos` con datos de prueba (técnico, monto estimado, etc.) asociado a ese `solicitudId`, para que aparezca en la pestaña Presupuestos.
+
+4. NOTIFICACIONES (Toast) Y RESALTADO (Highlight):
+  - Usá `ion-toast` (ToastController) para mostrar un mensaje en la parte inferior cuando se cambie el estado de una solicitud (ej: "Solicitud actualizada con éxito").
+  - Cuando el usuario navegue a la pestaña Presupuestos o Seguimiento y vea el nuevo ítem, ese ítem debe tener una animación CSS temporal (ej: un fondo amarillo o verde suave que se desvanece en 2 segundos) para indicar "esto es lo nuevo". Podés usar una variable de estado global (ej: `ultimoIdActualizado`) en el servicio para saber cuál resaltar.
+
+Hacelo, compilá, probá el flujo completo y mostrame cómo quedó.
 ~~~
 
-## Prompt de la fase 8
+### Formulario, salida y badge de Presupuestos
 
 ~~~text
-continuar
+Vamos a agregar la lógica de negocio final y mejorar la UX de navegación. No rompas los indicadores actuales:
+
+1. MÁS DATOS DE PRUEBA:
+  - En `src/assets/data/repara.json`, agregá 2 solicitudes más con estado "pendiente" para tener más casos de prueba.
+
+2. BOTÓN DE CERRAR SESIÓN (Logout):
+  - En la pestaña de Solicitudes, en el `ion-toolbar` superior (a la derecha), agregá un botón con ícono `log-out-outline`. Al hacer clic, debe resetear el rol en el servicio y redirigir al usuario a la página de Bienvenida (`/login`).
+
+3. CREAR SOLICITUD (Solo Cliente):
+  - En la pestaña de Solicitudes, agregá un `ion-fab` (botón flotante) en la esquina inferior derecha con un ícono de "+".
+  - Este botón solo debe ser visible si el rol activo es 'cliente'.
+  - Al hacer clic, debe abrir un `ion-modal` (o alert) con un formulario simple (Equipo, Problema, Cliente) y al guardar, agregar la nueva solicitud al arreglo del servicio con estado "pendiente".
+
+4. NOTIFICACIÓN EN EL TAB (Badge Rojo):
+  - En el archivo `tabs.page.html`, en el botón de la pestaña "Presupuestos", agregá un `<ion-badge color="danger">` que muestre un "1" (o un punto).
+  - Este badge solo debe mostrarse si el servicio tiene una variable `hayPresupuestoNuevo` en `true`.
+  - Cuando el usuario hace clic en la pestaña de Presupuestos, esa variable debe pasar a `false` (el badge desaparece).
+
+5. LÓGICA DE NEGOCIO (Presupuesto automático):
+  - Revisá que cuando una solicitud cambie a "presupuestada" desde el modo Técnico, se cree el presupuesto y se active la variable `hayPresupuestoNuevo` para que aparezca el badge rojo.
+
+Compilá, probá el flujo completo de cliente y técnico, y mostrame cómo quedó.
 ~~~
 
-## Qué se generó y qué se corrigió
+### Badge de Seguimiento
 
-- Fase 0. Se verificaron las versiones de las herramientas y las opciones del CLI. El proyecto todavía carecía de dependencias instaladas.
-- Fase 1. Se ejecutó `ionic.cmd start repara tabs --type=angular-standalone --no-git --no-capacitor --no-interactive`. Se movió todo el contenido, incluidos los archivos ocultos, a la raíz. Se eliminó el directorio vacío antes de ejecutar `git init`.
-- El CLI activó Capacitor pese a `--no-capacitor`. Se retiraron sus dependencias y su configuración generada y se volvió a compilar con éxito.
-- npm informó que bloqueó algunos scripts de instalación y Angular avisó que la configuración de Browserslist incluye navegadores fuera de su soporte. El build terminó correctamente.
-- Se confirmó en los tipos instalados de `@angular/common` 22.3.0 la exportación de `NgFor` y `NgIf`.
+~~~text
+Excelente trabajo. Solo faltan dos ajustes de lógica para cerrar:
 
-- Fase 2. Se renombraron las tres páginas y sus rutas, se asignaron íconos de herramientas, recibo y reloj y se retiró el componente de ejemplo. Se adaptó la prueba existente para recorrer las pestañas y detectar errores de consola. La prueba pasó en Chromium y el build pasó con el aviso conocido de Browserslist.
+1. BADGE EN SEGUIMIENTO:
+  - Al igual que en Presupuestos, agregá un `ion-badge` rojo en la pestaña de Seguimiento (en `tabs.page.html`).
+  - En el `ReparaService`, agregá una variable booleana `haySeguimientoNuevo`. Esta debe ponerse en `true` cada vez que se actualice un estado (ya que eso genera una nueva novedad).
+  - En la página de Seguimiento (`ngOnInit`), asegurate de poner esa variable en `false` para que el badge desaparezca cuando el usuario entra a ver las novedades.
 
-- Fase 3. Se reutilizaron los environments y la publicación de `src/assets` del starter. Se creó un JSON con tres colecciones, sus interfaces y un único servicio inyectable por constructor. El build pasó con el aviso conocido de Browserslist. Se comprobó el tipado del servicio por separado y se verificaron la copia del JSON en el build, la respuesta HTTP local y las referencias por `solicitudId`.
+2. ACLARACIÓN DE ROLES (Sin romper nada):
+  - Revisá el flujo visual del cliente. El cliente debe ver la lista de presupuestos (ya lo hace), pero asegurate de que el botón "Cambiar estado" en Solicitudes esté estrictamente oculto para él (solo visible para técnico).
 
-- Antes de la fase 4 se ampliaron las tres colecciones de muestra a cinco registros. Para la pantalla de Solicitudes se usarán `*ngFor` y `*ngIf`, importando `NgFor` y `NgIf` desde `@angular/common`. Ambas directivas están disponibles en la versión instalada 22.3.0 y AGENTS.md pide usarlas mientras estén disponibles.
+Compilá, probá ambos roles (cliente y técnico) y mostrame cómo quedó.
+~~~
 
-- Fase 4. Se conectó Solicitudes al servicio en `ngOnInit`, se listaron los datos con `*ngFor` y se implementaron carga, error, reintento y lista vacía con `*ngIf`. El build pasó con el aviso conocido de Browserslist. La prueba unitaria verificó carga, error y reintento. La prueba de Chromium verificó cinco filas del JSON y la navegación entre pestañas.
+### Onda de la bandera
 
-- Fase 5. Se conectó Presupuestos al servicio en `ngOnInit`, se asociaron los equipos por `solicitudId` y se mostraron los registros con `*ngFor`. Se usó `*ngIf` para carga, error y lista vacía. El build pasó con el aviso conocido de Browserslist. La prueba unitaria verificó carga, error, reintento y equipo asociado. Chromium confirmó cinco tarjetas y la navegación sin errores de consola.
+~~~text
+Un último detalle visual para la pantalla de Bienvenida (la bandera):
 
-- Fase 6. Se conectó Seguimiento al servicio, se ordenaron las novedades por fecha y se asoció su equipo por `solicitudId`. Se usaron `*ngFor` y `*ngIf`. La primera compilación detectó importaciones de Ionic que faltaban en Seguimiento. Se corrigieron y el build pasó con el aviso conocido de Browserslist. Pasaron las cinco pruebas unitarias y Chromium verificó las cinco novedades y la navegación.
+1. DIFUMINADO: Asegurate de que el degradado de la bandera (rojo, blanco y azul) sea súper suave y no tenga cortes rectos.
+2. ANIMACIÓN EN LOOP (Efecto Onda): Quiero que la bandera del fondo tenga un movimiento sutil y constante, como si fuera una tela meciéndose con el viento.
+  - Podés lograrlo animando la posición del `background-position` del gradiente, o usando un `@keyframes` con un `transform: skewY` o `scaleY` muy leve (por ejemplo, que se mueva 1 o 2 grados hacia los lados y vuelva, en un ciclo de 6 segundos, `ease-in-out infinite`).
+  - El movimiento debe ser MUY sutil para no marear ni quitar legibilidad a la tarjeta blanca.
 
-- Fase 7. Se integró el rol simulado en Solicitudes y el cambio de estado en memoria para el técnico. Se documentaron los usos de los componentes conectados a registros, estados de carga y eventos. El build pasó con el aviso conocido de Browserslist. En Chromium se verificaron los permisos de interfaz, la conservación del estado al navegar y su reinicio al recargar.
+Compilá, probá y mostrame cómo quedó.
+~~~
 
-- Fase 8. Se auditó la rúbrica y se registró la evidencia en `PROGRESO.md`. Pasaron `npm run build`, cinco pruebas unitarias y dos pruebas en Chromium. El build conservó el aviso conocido de Browserslist y se verificó que publique una copia idéntica del JSON. Queda pendiente de verificar la explicación oral del integrante.
+## Mi aporte como Fabián Giménez (60 %)
 
-- Ajustes de cierre. Se detectaron signos de interrogación literales en los textos de los datos. Se restauraron los caracteres originales, se guardó `repara.json` como UTF-8 y se verificaron los acentos en el build servido en Chromium. Se aplicaron Inter, fondo claro, acentos verde lima, tarjetas sin divisores, estados en píldoras y una barra de pestañas sin borde superior. Al revisar la vista móvil, se aumentó la altura de la barra para que las etiquetas se vieran completas. El build pasó con el aviso conocido de Browserslist.
-
-- Bienvenida. Se agregó una página standalone en la ruta raíz con campos simulados, logo tipográfico y selección de rol. Al ingresar se actualiza `rolActivo` y se navega a Solicitudes. Se conservó el selector de Solicitudes y se adaptaron las pruebas para entrar desde Bienvenida.
-
-- Pulido de UX. Se animó el logo con CSS, se añadieron beneficios y se movió la elección del rol exclusivamente a Bienvenida. Las pestañas incorporaron encabezados con subtítulos, estados vacíos con íconos y sombras más visibles en Solicitudes y Presupuestos. Las pruebas en Chromium verificaron navegación, rol técnico y los tres estados vacíos.
-
-- Ajuste final. Se agregó el historial de cambios de sesión y la recarga de Seguimiento al reabrir la pestaña. Se verificó en Chromium que los cambios del mismo día se ordenen del último al primero. Se actualizó Bienvenida con el logo REPARÁ, la animación CSS y una foto de herramientas servida desde `src/assets/taller-bienvenida.jpg`. Pasaron el build, cinco pruebas unitarias y tres pruebas en Chromium.
-
-- Último pulido. Se actualizó el texto automático de Seguimiento y su prueba de navegador. Se reemplazó la foto por una reparación de celular y se aplicó una ola CSS al logo REPARÁ. La primera compilación avisó que la hoja de estilos de Bienvenida superaba su presupuesto. Se simplificaron los retardos con una variable CSS por letra y se volvió a compilar. Se verificaron los retardos y el movimiento reducido en Chromium.
-
-- Pulido final. Se cambió el texto de las novedades a «El técnico actualizó el estado a: …» y se verificó en el navegador. Se agregó una máscara para difuminar la foto y un tricolor inferior al 8 %. El primer build advirtió por el tamaño de los estilos de Bienvenida. Las reglas del fondo se trasladaron a `global.scss` con alcance limitado a Bienvenida y el build final pasó con el aviso conocido de Browserslist.
-
-- Se suavizó el fondo inferior con un degradado de los colores de Paraguay al 12 %. En Chromium se verificó que Cambiar estado sigue disponible para el técnico en solicitudes abiertas, que el cliente no lo ve y que el cambio aparece en Seguimiento.
-
-- Ajuste de presupuestos. Se agregó una estimación de prueba cuando una solicitud pasa a presupuestada. Se verificaron su monto y aparición al volver a Presupuestos, el toast y el resaltado de las novedades. Se suavizó el botón de estado y se aplicó el fondo tricolor curvo. El build pasó con el aviso conocido de Browserslist. Pasaron cinco pruebas unitarias y cuatro pruebas en Chromium.
-
-- Lógica final de negocio. Se añadieron dos solicitudes pendientes, el formulario para Cliente, la ruta de salida y el badge de presupuesto nuevo. La prueba detectó que Ionic mantenía visible el rol anterior en Bienvenida tras cerrar sesión. Se corrigió al volver a leer el rol en `ionViewWillEnter`. Pasaron el build, cinco pruebas unitarias y cinco pruebas en Chromium.
-
-- Aviso de Seguimiento. Se agregó el indicador rojo para los cambios de estado, con limpieza al entrar y al volver a una pestaña reutilizada por Ionic. Se verificó que Cliente consulte los presupuestos y que solo Técnico vea el botón de cambio de estado. Pasaron el build, cinco pruebas unitarias y cinco en Chromium.
-
-- Se suavizó el borde del tricolor y se animó la capa del fondo. Chromium verificó el ciclo de seis segundos, que la tarjeta permanece fija y que la animación se desactiva con movimiento reducido. Pasaron el build y las cinco pruebas de navegador.
+Definí el tema de REPARÁ, la arquitectura con tres pestañas y un servicio para los datos locales, y las reglas de negocio de Cliente y Técnico. Elegí la dirección visual y pedí ajustes concretos al revisar las pantallas. También definí los casos que había que probar, como crear una solicitud, presupuestarla y comprobar que los avisos desaparezcan al abrir su pestaña.
 
 ## Revisión de los integrantes
-

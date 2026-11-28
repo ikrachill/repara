@@ -42,7 +42,7 @@ El tema visual de REPARA usa Inter, fondo claro y acentos verde lima. La foto de
 
 La compilación y las pruebas unitarias se ejecutan con `npm run build` y `npm run test:unit`. Para la prueba de navegador, instalá Chromium con `npx playwright install chromium` y ejecutá `npm run test:e2e`.
 
-La auditoría de la rúbrica está en [PROGRESO.md](PROGRESO.md#auditoría-final-de-la-rúbrica). La guía para explicar el código está en [EXPLICACION.md](EXPLICACION.md).
+El registro del uso de IA está en [IA.md](IA.md). La guía para explicar el código está en [EXPLICACION.md](EXPLICACION.md).
 
 ## Capturas
 
