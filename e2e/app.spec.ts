@@ -107,3 +107,41 @@ test('muestra un estado vacío ilustrado en cada pestaña', async ({ page }) => 
     await expect(estado.locator(`ion-icon[name="${icono}"] svg`)).toBeVisible();
   }
 });
+
+test('genera y resalta un presupuesto al presupuestar una solicitud', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('app-bienvenida ion-select').click();
+  await page.getByRole('radio', { name: 'Técnico' }).click();
+  await page.getByRole('button', { name: /^ok$/i }).click();
+  await page.getByRole('button', { name: 'Ingresar' }).click();
+
+  const pestana = (nombre: string) => page.locator(`ion-tab-button[tab="${nombre}"]`);
+  const tarjetas = page.locator('app-presupuestos ion-card');
+  await pestana('presupuestos').click();
+  await expect(tarjetas).toHaveCount(5);
+  await pestana('solicitudes').click();
+
+  const solicitud = page.locator('app-solicitudes ion-item').filter({ hasText: 'Licuadora' });
+  await expect(solicitud.locator('ion-badge')).toHaveText('pendiente');
+  const accion = solicitud.getByRole('button', { name: 'Cambiar estado' });
+  await accion.click();
+  await expect(solicitud.locator('ion-badge')).toHaveText('presupuestada');
+  await expect(page.locator('ion-toast').getByText('Solicitud actualizada con éxito')).toBeVisible();
+
+  await pestana('presupuestos').click();
+  await expect(tarjetas).toHaveCount(6);
+  const presupuesto = tarjetas.first();
+  await expect(presupuesto.locator('ion-card-title')).toHaveText('Licuadora');
+  await expect(presupuesto.locator('.monto')).toHaveText('Gs. 150,000');
+  await expect(presupuesto).toHaveClass(/registro-nuevo/);
+  await expect(presupuesto).toHaveCSS('animation-duration', '2s');
+
+  await pestana('seguimiento').click();
+  const novedad = page.locator('app-seguimiento ion-item').first();
+  await expect(novedad.locator('p')).toHaveText('El técnico actualizó el estado a: presupuestada');
+  await expect(novedad).toHaveClass(/registro-nuevo/);
+
+  await pestana('presupuestos').click();
+  await expect(tarjetas).toHaveCount(6);
+  await expect(tarjetas.first()).not.toHaveClass(/registro-nuevo/);
+});
