@@ -222,8 +222,6 @@ Un último detalle visual para la pantalla de Bienvenida (la bandera):
 Compilá, probá y mostrame cómo quedó.
 ~~~
 
-## Mi aporte como Fabián Giménez (60 %)
+## Mi aporte (60 %)
 
-Definí el tema de REPARÁ, la arquitectura con tres pestañas y un servicio para los datos locales, y las reglas de negocio de Cliente y Técnico. Elegí la dirección visual y pedí ajustes concretos al revisar las pantallas. También definí los casos que había que probar, como crear una solicitud, presupuestarla y comprobar que los avisos desaparezcan al abrir su pestaña.
-
-## Revisión de los integrantes
+Definí el tema de REPARÁ, la arquitectura lógica con tres pestañas y un servicio para los datos locales, y las reglas de negocio de Cliente y Técnico. Elegí la dirección visual y pedí ajustes concretos al revisar las pantallas. También definí los casos que había que probar, como crear una solicitud, presupuestarla y comprobar que los avisos desaparezcan al abrir su pestaña.

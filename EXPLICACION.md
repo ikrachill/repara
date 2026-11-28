@@ -29,8 +29,6 @@ Se eligió standalone para declarar en cada componente las dependencias de su pl
 
 En Bienvenida, `ionChange` actualiza la selección y el botón Ingresar copia el rol a `rolActivo` en el servicio. El botón de cada solicitud abierta se muestra si el rol es técnico. Al hacer clic, la página elige el siguiente estado y el servicio vuelve a comprobar el rol antes de aplicarlo. El servicio guarda el estado por ID en memoria y agrega una novedad con el ID de la solicitud y la fecha local. Seguimiento recarga al volver a la pestaña y ordena por fecha descendente. Las novedades de sesión se anteponen en el origen para desempatar por orden de registro en la misma fecha.
 
-La auditoría final y sus rutas de evidencia están en `PROGRESO.md`. Las pruebas cubren carga, error y reintento en cada página, además de navegación y cambio de estado por rol en Chromium.
-
 `src/theme/variables.scss` define la paleta, la tipografía y las dimensiones compartidas. `src/global.scss` aplica el tema a las listas, las píldoras de estado y los botones. Los estilos de cada página ajustan el monto, las fechas y el selector de rol. `src/app/tabs/tabs.page.scss` personaliza la navegación inferior. `src/index.html` declara español, UTF-8 y carga Inter desde Google Fonts.
 
 `src/app/pages/bienvenida/` contiene la página standalone, la plantilla de acceso de demostración y su estilo. Las letras y el punto del logo forman una ola con retardos de 90 ms en un ciclo CSS de tres segundos y respetan la preferencia de movimiento reducido. Cada pestaña define los colores de su encabezado y su estado vacío.
@@ -41,7 +39,7 @@ Cuando el estado pasa a presupuestada, el servicio crea una estimación de prueb
 
 El formulario de Solicitudes pide equipo, problema y cliente. El servicio comprueba el rol y los campos, asigna un ID de sesión y guarda la solicitud como pendiente. Al generar una estimación, activa `hayPresupuestoNuevo`. Cada cambio de estado activa también `haySeguimientoNuevo`. Seguimiento limpia su aviso en `ngOnInit` y al volver a entrar en la pestaña. `tabs.page.html` muestra el aviso y lo limpia al pulsar Presupuestos. Al cerrar sesión se restablece el rol y se vuelve a `/login`. `ionViewWillEnter` sincroniza la selección de Bienvenida incluso cuando Ionic reutiliza esa página.
 
-## Diez preguntas del docente
+## Diez preguntas
 
 1. **¿Qué resuelve REPARA?** Permite solicitar reparaciones, consultar presupuestos y seguir el estado de cada trabajo.
 2. **¿Qué significa standalone?** El componente importa directamente lo que necesita para su plantilla.
