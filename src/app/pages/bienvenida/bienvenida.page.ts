@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonButton, IonContent, IonIcon, IonInput, IonSelect, IonSelectOption } from '@ionic/angular';
 
@@ -21,9 +21,15 @@ export class BienvenidaPage {
   constructor(
     private readonly reparaService: ReparaService,
     private readonly router: Router,
+    private readonly detector: ChangeDetectorRef,
   ) {
     this.rol = reparaService.rolActivo;
     addIcons({ checkmarkCircleOutline });
+  }
+
+  ionViewWillEnter(): void {
+    this.rol = this.reparaService.rolActivo;
+    this.detector.markForCheck();
   }
 
   ingresar(evento: SubmitEvent): void {

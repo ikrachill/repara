@@ -21,3 +21,14 @@ ion-badge {
 .lista-tarjetas ion-item {
   box-shadow: var(--repara-sombra-elevada);
 }
+
+ion-fab {
+  margin: 0 10px 10px 0;
+}
+
+.formulario-solicitud {
+  display: grid;
+  max-width: 480px;
+  margin-inline: auto;
+  gap: 16px;
+}

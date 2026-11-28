@@ -29,3 +29,8 @@ ion-tab-button.tab-selected ion-icon {
 ion-label {
   font-weight: 650;
 }
+
+ion-badge {
+  position: absolute;
+  inset: 4px auto auto calc(50% + 12px);
+}

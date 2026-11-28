@@ -1,21 +1,29 @@
 import { NgFor, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ChangeDetectorRef, Component, type OnInit } from '@angular/core';
 import {
   IonBadge,
   IonButton,
+  IonButtons,
   IonContent,
+  IonFab,
+  IonFabButton,
   IonHeader,
   IonIcon,
+  IonInput,
   IonItem,
   IonLabel,
   IonList,
+  IonModal,
   IonSpinner,
+  IonTextarea,
   IonTitle,
   IonToolbar,
   ToastController,
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { documentTextOutline, syncOutline } from 'ionicons/icons';
+import { addOutline, documentTextOutline, logOutOutline, syncOutline } from 'ionicons/icons';
 import { finalize } from 'rxjs';
 
 import type { Rol, Solicitud } from '../../models/repara.model';
@@ -26,7 +34,8 @@ import { ReparaService } from '../../services/repara.service';
   templateUrl: 'solicitudes.page.html',
   styleUrls: ['solicitudes.page.scss'],
   imports: [
-    NgFor, NgIf, IonBadge, IonButton, IonContent, IonHeader, IonIcon, IonItem,
+    FormsModule, NgFor, NgIf, IonBadge, IonButton, IonButtons, IonContent, IonFab,
+    IonFabButton, IonHeader, IonIcon, IonInput, IonItem, IonModal, IonTextarea,
     IonLabel, IonList, IonSpinner, IonTitle, IonToolbar,
   ],
 })
@@ -34,13 +43,18 @@ export class SolicitudesPage implements OnInit {
   solicitudes: Solicitud[] = [];
   cargando = false;
   error = '';
+  formularioAbierto = false;
+  equipo = '';
+  problema = '';
+  cliente = '';
 
   constructor(
     private readonly reparaService: ReparaService,
     private readonly detector: ChangeDetectorRef,
     private readonly toastController: ToastController,
+    private readonly router: Router,
   ) {
-    addIcons({ documentTextOutline, syncOutline });
+    addIcons({ addOutline, documentTextOutline, logOutOutline, syncOutline });
   }
 
   private readonly estados: Solicitud['estado'][] = [
@@ -49,6 +63,26 @@ export class SolicitudesPage implements OnInit {
 
   get rolActivo(): Rol {
     return this.reparaService.rolActivo;
+  }
+
+  cerrarSesion(): void {
+    this.reparaService.cerrarSesion();
+    void this.router.navigateByUrl('/login', { replaceUrl: true });
+  }
+
+  cerrarFormulario(): void {
+    this.formularioAbierto = false;
+    this.equipo = '';
+    this.problema = '';
+    this.cliente = '';
+  }
+
+  guardarSolicitud(): void {
+    const solicitud = this.reparaService.crearSolicitud(this.equipo, this.problema, this.cliente);
+    if (solicitud) {
+      this.solicitudes = [solicitud, ...this.solicitudes];
+      this.cerrarFormulario();
+    }
   }
 
   async avanzarEstado(solicitud: Solicitud): Promise<void> {

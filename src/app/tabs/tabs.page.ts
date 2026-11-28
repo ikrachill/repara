@@ -1,16 +1,19 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular';
+import { IonBadge, IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { constructOutline, receiptOutline, timeOutline } from 'ionicons/icons';
+
+import { ReparaService } from '../services/repara.service';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
+  imports: [NgIf, IonBadge, IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
 })
 export class TabsPage {
-  constructor() {
+  constructor(readonly reparaService: ReparaService) {
     addIcons({ constructOutline, receiptOutline, timeOutline });
   }
 }

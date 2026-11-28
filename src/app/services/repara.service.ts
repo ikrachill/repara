@@ -8,6 +8,8 @@ import type { DatosRepara, Presupuesto, Rol, Seguimiento, Solicitud } from '../m
 @Injectable({ providedIn: 'root' })
 export class ReparaService {
   rolActivo: Rol = 'cliente';
+  hayPresupuestoNuevo = false;
+  private readonly solicitudesSesion: Solicitud[] = [];
   private readonly presupuestosSesion: Presupuesto[] = [];
   private readonly seguimientosSesion: Seguimiento[] = [];
   private readonly estadosSesion = new Map<number, Solicitud['estado']>();
@@ -20,12 +22,33 @@ export class ReparaService {
         ...datos,
         presupuestos: [...this.presupuestosSesion, ...datos.presupuestos],
         seguimientos: [...this.seguimientosSesion, ...datos.seguimientos],
-        solicitudes: datos.solicitudes.map((solicitud) => ({
+        solicitudes: [...this.solicitudesSesion, ...datos.solicitudes].map((solicitud) => ({
           ...solicitud,
           estado: this.estadosSesion.get(solicitud.id) ?? solicitud.estado,
         })),
       })),
     );
+  }
+
+  crearSolicitud(equipo: string, descripcion: string, cliente: string): Solicitud | undefined {
+    if (this.rolActivo !== 'cliente' || !equipo.trim() || !descripcion.trim() || !cliente.trim()) {
+      return;
+    }
+
+    const solicitud: Solicitud = {
+      id: -(this.solicitudesSesion.length + 1),
+      equipo: equipo.trim(),
+      descripcion: descripcion.trim(),
+      cliente: cliente.trim(),
+      fecha: new Date().toLocaleDateString('sv-SE'),
+      estado: 'pendiente',
+    };
+    this.solicitudesSesion.unshift(solicitud);
+    return { ...solicitud };
+  }
+
+  cerrarSesion(): void {
+    this.rolActivo = 'cliente';
   }
 
   cambiarEstado(solicitud: Solicitud, estado: Solicitud['estado']): boolean {
@@ -42,6 +65,7 @@ export class ReparaService {
           monto: 150000,
           estado: 'pendiente',
         });
+        this.hayPresupuestoNuevo = true;
       }
       this.seguimientosSesion.unshift({
         id: -(this.seguimientosSesion.length + 1),

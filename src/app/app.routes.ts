@@ -4,6 +4,10 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    redirectTo: 'login',
+  },
+  {
+    path: 'login',
     loadComponent: () => import('./pages/bienvenida/bienvenida.page').then((m) => m.BienvenidaPage),
   },
   {

@@ -5,9 +5,10 @@
       <ion-label>Solicitudes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="presupuestos" href="/tabs/presupuestos">
+    <ion-tab-button tab="presupuestos" href="/tabs/presupuestos" (click)="reparaService.hayPresupuestoNuevo = false">
       <ion-icon aria-hidden="true" name="receipt-outline"></ion-icon>
       <ion-label>Presupuestos</ion-label>
+      <ion-badge *ngIf="reparaService.hayPresupuestoNuevo" color="danger" aria-label="Presupuesto nuevo">1</ion-badge>
     </ion-tab-button>
 
     <ion-tab-button tab="seguimiento" href="/tabs/seguimiento">
