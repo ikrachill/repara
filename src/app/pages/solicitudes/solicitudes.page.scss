@@ -7,7 +7,13 @@ ion-badge {
   margin-top: 9px;
 }
 
-ion-item ion-button {
+.accion-estado {
+  --background: #eaf7bf;
+  --background-activated: #d6eda0;
+  --color: #354719;
+  --border-radius: 20px;
+  --box-shadow: 0 3px 9px #49601e29;
+  min-height: 38px;
   max-width: 38%;
   white-space: normal;
 }

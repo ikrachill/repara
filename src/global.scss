@@ -156,14 +156,15 @@ ion-button {
   margin: 0;
 }
 
-app-bienvenida ion-content {
-  --background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(213, 43, 30, 0.12) 30%,
-    rgba(255, 255, 255, 0.12) 58%,
-    rgba(0, 56, 168, 0.12)
-  ) bottom / 100% 200px no-repeat var(--ion-background-color);
+app-bienvenida .bienvenida::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: min(230px, 35%);
+  z-index: -1;
+  border-radius: 50% 50% 0 0 / 22px 22px 0 0;
+  background: linear-gradient(to bottom, #d52b1e, #fff 50%, #0038a8);
+  opacity: 0.35;
+  content: '';
 }
 
 app-bienvenida .bienvenida::before {
@@ -174,4 +175,16 @@ app-bienvenida .bienvenida::before {
     url('/assets/taller-bienvenida.jpg') center 48% / cover no-repeat;
   mask-image: linear-gradient(#000 68%, transparent);
   content: '';
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ion-card.registro-nuevo,
+  ion-item.registro-nuevo::part(native) {
+    animation: destacar-registro 2s ease-out;
+  }
+}
+
+@keyframes destacar-registro {
+  from { background-color: #e4f5a9; }
+  to { background-color: var(--repara-superficie); }
 }

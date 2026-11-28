@@ -12,9 +12,10 @@ import {
   IonSpinner,
   IonTitle,
   IonToolbar,
+  ToastController,
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { documentTextOutline } from 'ionicons/icons';
+import { documentTextOutline, syncOutline } from 'ionicons/icons';
 import { finalize } from 'rxjs';
 
 import type { Rol, Solicitud } from '../../models/repara.model';
@@ -37,8 +38,9 @@ export class SolicitudesPage implements OnInit {
   constructor(
     private readonly reparaService: ReparaService,
     private readonly detector: ChangeDetectorRef,
+    private readonly toastController: ToastController,
   ) {
-    addIcons({ documentTextOutline });
+    addIcons({ documentTextOutline, syncOutline });
   }
 
   private readonly estados: Solicitud['estado'][] = [
@@ -49,10 +51,16 @@ export class SolicitudesPage implements OnInit {
     return this.reparaService.rolActivo;
   }
 
-  avanzarEstado(solicitud: Solicitud): void {
+  async avanzarEstado(solicitud: Solicitud): Promise<void> {
     const siguiente = this.estados[this.estados.indexOf(solicitud.estado) + 1];
-    if (siguiente) {
-      this.reparaService.cambiarEstado(solicitud, siguiente);
+    if (siguiente && this.reparaService.cambiarEstado(solicitud, siguiente)) {
+      const toast = await this.toastController.create({
+        message: 'Solicitud actualizada con éxito',
+        duration: 1800,
+        position: 'bottom',
+        positionAnchor: 'barra-pestanas',
+      });
+      await toast.present();
     }
   }
 

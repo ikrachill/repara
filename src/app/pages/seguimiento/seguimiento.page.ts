@@ -20,9 +20,10 @@ import { ReparaService } from '../../services/repara.service';
   ],
 })
 export class SeguimientoPage implements OnInit {
-  seguimientos: (Seguimiento & { equipo: string })[] = [];
+  seguimientos: (Seguimiento & { equipo: string; nuevo: boolean })[] = [];
   cargando = false;
   error = '';
+  private readonly vistos = new Set<number>();
   private yaEntro = false;
 
   constructor(
@@ -59,9 +60,13 @@ export class SeguimientoPage implements OnInit {
           .sort((primero, segundo) => segundo.fecha.localeCompare(primero.fecha))
           .map((seguimiento) => ({
             ...seguimiento,
+            nuevo: seguimiento.id < 0 && !this.vistos.has(seguimiento.id),
             equipo: solicitudes.find((solicitud) => solicitud.id === seguimiento.solicitudId)?.equipo
               ?? `Solicitud #${seguimiento.solicitudId}`,
           }));
+        for (const seguimiento of this.seguimientos) {
+          this.vistos.add(seguimiento.id);
+        }
       },
       error: () => {
         this.error = 'No se pudieron cargar los seguimientos.';

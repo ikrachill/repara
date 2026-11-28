@@ -18,7 +18,7 @@
   </div>
 
   <section class="bloque-registros" *ngIf="!cargando && !error">
-    <ion-card *ngFor="let presupuesto of presupuestos">
+    <ion-card *ngFor="let presupuesto of presupuestos" [class.registro-nuevo]="presupuesto.nuevo">
       <ion-card-header>
         <ion-card-title>{{ presupuesto.equipo }}</ion-card-title>
       </ion-card-header>

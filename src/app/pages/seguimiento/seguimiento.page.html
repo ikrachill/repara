@@ -19,7 +19,7 @@
 
   <section class="bloque-registros" *ngIf="!cargando && !error">
     <ion-list class="lista-tarjetas" lines="none" *ngIf="seguimientos.length; else sinSeguimientos">
-      <ion-item *ngFor="let seguimiento of seguimientos">
+      <ion-item *ngFor="let seguimiento of seguimientos" [class.registro-nuevo]="seguimiento.nuevo">
         <ion-label class="ion-text-wrap">
           <h2>{{ seguimiento.equipo }}</h2>
           <p>{{ seguimiento.detalle }}</p>

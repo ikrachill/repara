@@ -27,7 +27,8 @@
           <ion-badge [attr.data-estado]="solicitud.estado">{{ solicitud.estado }}</ion-badge>
         </ion-label>
         <ion-button *ngIf="rolActivo === 'tecnico' && solicitud.estado !== 'finalizada'"
-          slot="end" (click)="avanzarEstado(solicitud)">
+          slot="end" class="accion-estado" fill="solid" (click)="avanzarEstado(solicitud)">
+          <ion-icon slot="start" name="sync-outline" aria-hidden="true"></ion-icon>
           Cambiar estado
         </ion-button>
       </ion-item>

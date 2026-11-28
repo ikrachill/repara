@@ -21,9 +21,11 @@ import { ReparaService } from '../../services/repara.service';
   ],
 })
 export class PresupuestosPage implements OnInit {
-  presupuestos: (Presupuesto & { equipo: string })[] = [];
+  presupuestos: (Presupuesto & { equipo: string; nuevo: boolean })[] = [];
   cargando = false;
   error = '';
+  private readonly vistos = new Set<number>();
+  private yaEntro = false;
 
   constructor(
     private readonly reparaService: ReparaService,
@@ -34,6 +36,13 @@ export class PresupuestosPage implements OnInit {
 
   ngOnInit(): void {
     this.cargarPresupuestos();
+  }
+
+  ionViewWillEnter(): void {
+    if (this.yaEntro) {
+      this.cargarPresupuestos();
+    }
+    this.yaEntro = true;
   }
 
   cargarPresupuestos(): void {
@@ -49,9 +58,13 @@ export class PresupuestosPage implements OnInit {
       next: ({ presupuestos, solicitudes }) => {
         this.presupuestos = presupuestos.map((presupuesto) => ({
           ...presupuesto,
+          nuevo: presupuesto.id < 0 && !this.vistos.has(presupuesto.id),
           equipo: solicitudes.find((solicitud) => solicitud.id === presupuesto.solicitudId)?.equipo
             ?? `Solicitud #${presupuesto.solicitudId}`,
         }));
+        for (const presupuesto of this.presupuestos) {
+          this.vistos.add(presupuesto.id);
+        }
       },
       error: () => {
         this.error = 'No se pudieron cargar los presupuestos.';
