@@ -9,6 +9,7 @@ import type { DatosRepara, Presupuesto, Rol, Seguimiento, Solicitud } from '../m
 export class ReparaService {
   rolActivo: Rol = 'cliente';
   hayPresupuestoNuevo = false;
+  haySeguimientoNuevo = false;
   private readonly solicitudesSesion: Solicitud[] = [];
   private readonly presupuestosSesion: Presupuesto[] = [];
   private readonly seguimientosSesion: Seguimiento[] = [];
@@ -73,6 +74,7 @@ export class ReparaService {
         fecha: new Date().toLocaleDateString('sv-SE'),
         detalle: `El técnico actualizó el estado a: ${estado}`,
       });
+      this.haySeguimientoNuevo = true;
       return true;
     }
     return false;

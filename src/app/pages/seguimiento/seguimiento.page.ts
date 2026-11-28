@@ -34,10 +34,12 @@ export class SeguimientoPage implements OnInit {
   }
 
   ngOnInit(): void {
+    this.reparaService.haySeguimientoNuevo = false;
     this.cargarSeguimientos();
   }
 
   ionViewWillEnter(): void {
+    this.reparaService.haySeguimientoNuevo = false;
     if (this.yaEntro) {
       this.cargarSeguimientos();
     }

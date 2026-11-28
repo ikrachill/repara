@@ -14,6 +14,7 @@
     <ion-tab-button tab="seguimiento" href="/tabs/seguimiento">
       <ion-icon aria-hidden="true" name="time-outline"></ion-icon>
       <ion-label>Seguimiento</ion-label>
+      <ion-badge *ngIf="reparaService.haySeguimientoNuevo" color="danger" aria-label="Seguimiento nuevo">1</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
