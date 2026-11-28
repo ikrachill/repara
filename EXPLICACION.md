@@ -39,7 +39,7 @@ El fondo de Bienvenida se define en `src/global.scss` con reglas acotadas a la p
 
 Cuando el estado pasa a presupuestada, el servicio crea una estimación de prueba asociada al ID de la solicitud. Presupuestos y Seguimiento recargan sus datos al volver a abrirse. Las pantallas reconocen los IDs negativos de los registros de sesión y los resaltan por dos segundos la primera vez que los muestran. El toast confirma un cambio aplicado.
 
-El formulario de Solicitudes pide equipo, problema y cliente. El servicio comprueba el rol y los campos, asigna un ID de sesión y guarda la solicitud como pendiente. Al generar una estimación, activa `hayPresupuestoNuevo`. `tabs.page.html` muestra el aviso y lo limpia al pulsar Presupuestos. Al cerrar sesión se restablece el rol y se vuelve a `/login`. `ionViewWillEnter` sincroniza la selección de Bienvenida incluso cuando Ionic reutiliza esa página.
+El formulario de Solicitudes pide equipo, problema y cliente. El servicio comprueba el rol y los campos, asigna un ID de sesión y guarda la solicitud como pendiente. Al generar una estimación, activa `hayPresupuestoNuevo`. Cada cambio de estado activa también `haySeguimientoNuevo`. Seguimiento limpia su aviso en `ngOnInit` y al volver a entrar en la pestaña. `tabs.page.html` muestra el aviso y lo limpia al pulsar Presupuestos. Al cerrar sesión se restablece el rol y se vuelve a `/login`. `ionViewWillEnter` sincroniza la selección de Bienvenida incluso cuando Ionic reutiliza esa página.
 
 ## Diez preguntas del docente
 

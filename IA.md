@@ -269,5 +269,7 @@ continuar
 
 - Lógica final de negocio. Se añadieron dos solicitudes pendientes, el formulario para Cliente, la ruta de salida y el badge de presupuesto nuevo. La prueba detectó que Ionic mantenía visible el rol anterior en Bienvenida tras cerrar sesión. Se corrigió al volver a leer el rol en `ionViewWillEnter`. Pasaron el build, cinco pruebas unitarias y cinco pruebas en Chromium.
 
+- Aviso de Seguimiento. Se agregó el indicador rojo para los cambios de estado, con limpieza al entrar y al volver a una pestaña reutilizada por Ionic. Se verificó que Cliente consulte los presupuestos y que solo Técnico vea el botón de cambio de estado. Pasaron el build, cinco pruebas unitarias y cinco en Chromium.
+
 ## Revisión de los integrantes
 

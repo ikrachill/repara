@@ -28,7 +28,7 @@ La foto de Bienvenida se difumina hacia abajo y el fondo inferior usa un degrada
 
 Al pasar a presupuestada, una solicitud genera una estimación en memoria. El botón de Técnico muestra un toast y Presupuestos y Seguimiento resaltan los nuevos registros en la primera visita que los muestra.
 
-El JSON trae siete solicitudes. Cliente puede crear otra mediante el formulario flotante. Solicitudes permite cerrar sesión y volver a Bienvenida con el rol restablecido. El presupuesto automático activa un aviso que se limpia al abrir su pestaña.
+El JSON trae siete solicitudes. Cliente puede crear otra mediante el formulario flotante. Solicitudes permite cerrar sesión y volver a Bienvenida con el rol restablecido. El presupuesto automático y las novedades de seguimiento activan avisos que se limpian al abrir su pestaña.
 
 ## Auditoría final de la rúbrica
 
