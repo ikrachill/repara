@@ -158,10 +158,12 @@ ion-button {
 
 app-bienvenida ion-content {
   --background: linear-gradient(
-    rgba(213, 43, 30, 0.08) 33.33%,
-    rgba(255, 255, 255, 0.08) 33.33% 66.67%,
-    rgba(0, 56, 168, 0.08) 66.67%
-  ) bottom / 100% 180px no-repeat var(--ion-background-color);
+    to bottom,
+    transparent,
+    rgba(213, 43, 30, 0.12) 30%,
+    rgba(255, 255, 255, 0.12) 58%,
+    rgba(0, 56, 168, 0.12)
+  ) bottom / 100% 200px no-repeat var(--ion-background-color);
 }
 
 app-bienvenida .bienvenida::before {
