@@ -271,5 +271,7 @@ continuar
 
 - Aviso de Seguimiento. Se agregó el indicador rojo para los cambios de estado, con limpieza al entrar y al volver a una pestaña reutilizada por Ionic. Se verificó que Cliente consulte los presupuestos y que solo Técnico vea el botón de cambio de estado. Pasaron el build, cinco pruebas unitarias y cinco en Chromium.
 
+- Se suavizó el borde del tricolor y se animó la capa del fondo. Chromium verificó el ciclo de seis segundos, que la tarjeta permanece fija y que la animación se desactiva con movimiento reducido. Pasaron el build y las cinco pruebas de navegador.
+
 ## Revisión de los integrantes
 
