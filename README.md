@@ -18,7 +18,7 @@ La aplicación usa el archivo local `src/assets/data/repara.json`, con las colec
 
 ## Rol simulado
 
-Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. Para elegir otro rol, volvé a Bienvenida. El rol se conserva al navegar entre pestañas. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado, muestra una confirmación y agrega una novedad en Seguimiento. Al pasar a presupuestada se crea una estimación de prueba de Gs. 150.000. Los registros nuevos se resaltan al abrir sus pestañas. Los cambios se conservan al navegar y se reinician al recargar el navegador.
+Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. Los campos de usuario y contraseña son de demostración y se pueden dejar vacíos. Para elegir otro rol, usá el botón de salida en Solicitudes. La salida restablece Cliente y abre `/login`. En modo Cliente, el botón **+** abre el formulario para crear solicitudes pendientes. El rol se conserva al navegar entre pestañas. Al elegir Técnico, aparece **Cambiar estado** en las solicitudes abiertas. Cada clic avanza al siguiente estado, muestra una confirmación y agrega una novedad en Seguimiento. Al pasar a presupuestada se crea una estimación de prueba de Gs. 150.000. Los registros nuevos se resaltan al abrir sus pestañas. Presupuestos muestra un aviso rojo hasta que abrís la pestaña. Las solicitudes y los presupuestos de la demostración quedan en memoria al cambiar de rol. Los cambios se conservan al navegar y se reinician al recargar el navegador.
 
 ## Componentes Ionic
 
@@ -35,6 +35,8 @@ Al abrir la aplicación, elegí el rol en Bienvenida y presioná **Ingresar**. L
 | `ion-input` | Campos de demostración en `src/app/pages/bienvenida/bienvenida.page.html` |
 
 El tema visual de REPARA usa Inter, fondo claro y acentos verde lima. La foto de Bienvenida es de [Revendo en Unsplash](https://unsplash.com/photos/a-person-using-a-screwdriver-to-fix-a-cell-phone-Q_I49DIzHu8).
+
+`ion-fab`, `ion-fab-button`, `ion-modal`, `ion-input` e `ion-textarea` se usan en `src/app/pages/solicitudes/solicitudes.page.html` para crear solicitudes. El `ion-badge` de `src/app/tabs/tabs.page.html` indica una estimación pendiente de lectura.
 
 ## Verificación
 

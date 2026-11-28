@@ -267,5 +267,7 @@ continuar
 
 - Ajuste de presupuestos. Se agregó una estimación de prueba cuando una solicitud pasa a presupuestada. Se verificaron su monto y aparición al volver a Presupuestos, el toast y el resaltado de las novedades. Se suavizó el botón de estado y se aplicó el fondo tricolor curvo. El build pasó con el aviso conocido de Browserslist. Pasaron cinco pruebas unitarias y cuatro pruebas en Chromium.
 
+- Lógica final de negocio. Se añadieron dos solicitudes pendientes, el formulario para Cliente, la ruta de salida y el badge de presupuesto nuevo. La prueba detectó que Ionic mantenía visible el rol anterior en Bienvenida tras cerrar sesión. Se corrigió al volver a leer el rol en `ionViewWillEnter`. Pasaron el build, cinco pruebas unitarias y cinco pruebas en Chromium.
+
 ## Revisión de los integrantes
 
