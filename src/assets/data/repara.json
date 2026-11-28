@@ -39,6 +39,22 @@
       "descripcion": "El papel se atasca al entrar.",
       "fecha": "2026-11-21",
       "estado": "finalizada"
+    },
+    {
+      "id": 6,
+      "cliente": "Carla Acosta",
+      "equipo": "Batidora",
+      "descripcion": "La velocidad cambia sin tocar el selector.",
+      "fecha": "2026-11-26",
+      "estado": "pendiente"
+    },
+    {
+      "id": 7,
+      "cliente": "Diego López",
+      "equipo": "Parlante",
+      "descripcion": "El sonido se corta al subir el volumen.",
+      "fecha": "2026-11-27",
+      "estado": "pendiente"
     }
   ],
   "presupuestos": [
