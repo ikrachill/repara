@@ -263,5 +263,7 @@ continuar
 
 - Pulido final. Se cambió el texto de las novedades a «El técnico actualizó el estado a: …» y se verificó en el navegador. Se agregó una máscara para difuminar la foto y un tricolor inferior al 8 %. El primer build advirtió por el tamaño de los estilos de Bienvenida. Las reglas del fondo se trasladaron a `global.scss` con alcance limitado a Bienvenida y el build final pasó con el aviso conocido de Browserslist.
 
+- Se suavizó el fondo inferior con un degradado de los colores de Paraguay al 12 %. En Chromium se verificó que Cambiar estado sigue disponible para el técnico en solicitudes abiertas, que el cliente no lo ve y que el cambio aparece en Seguimiento.
+
 ## Revisión de los integrantes
 

@@ -24,7 +24,7 @@ Se agregó la bienvenida standalone en la raíz, con elección de rol únicament
 
 Cada cambio de estado ahora genera una novedad de sesión y aparece en Seguimiento al volver a la pestaña. Se agregó una foto local de una reparación en curso en Bienvenida. El logo REPARÁ se anima letra por letra y las novedades usan el texto «El técnico actualizó el estado a: …».
 
-La foto de Bienvenida se difumina hacia abajo y el fondo inferior lleva el tricolor paraguayo al 8 %.
+La foto de Bienvenida se difumina hacia abajo y el fondo inferior usa un degradado suave de ancho completo con los colores del tricolor paraguayo al 12 %.
 
 ## Auditoría final de la rúbrica
 

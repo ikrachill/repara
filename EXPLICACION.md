@@ -35,7 +35,7 @@ La auditoría final y sus rutas de evidencia están en `PROGRESO.md`. Las prueba
 
 `src/app/pages/bienvenida/` contiene la página standalone, la plantilla de acceso de demostración y su estilo. Las letras y el punto del logo forman una ola con retardos de 90 ms en un ciclo CSS de tres segundos y respetan la preferencia de movimiento reducido. Cada pestaña define los colores de su encabezado y su estado vacío.
 
-El fondo de Bienvenida se define en `src/global.scss` con reglas acotadas a la página. La foto se difumina con una máscara CSS y el tricolor inferior usa tres franjas al 8 %.
+El fondo de Bienvenida se define en `src/global.scss` con reglas acotadas a la página. La foto se difumina con una máscara CSS y el tricolor inferior usa un degradado continuo con colores al 12 %.
 
 ## Diez preguntas del docente
 
