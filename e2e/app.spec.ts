@@ -59,6 +59,9 @@ test('registra y ordena en Seguimiento los cambios que hace el técnico', async 
   await expect(cambiarEstado).toBeVisible();
 
   const novedades = page.locator('app-seguimiento ion-item');
+  const pestanaSeguimiento = page.locator('ion-tab-button[tab="seguimiento"]');
+  const aviso = pestanaSeguimiento.locator('ion-badge[color="danger"]');
+  await expect(aviso).toHaveCount(0);
   await page.locator('ion-tab-button[tab="seguimiento"]').click();
   await expect(novedades).toHaveCount(5);
   await page.locator('ion-tab-button[tab="solicitudes"]').click();
@@ -67,8 +70,10 @@ test('registra y ordena en Seguimiento los cambios que hace el técnico', async 
   await expect(notebook.locator('ion-badge')).toHaveText('finalizada');
   await expect(cambiarEstado).toHaveCount(0);
 
-  await page.locator('ion-tab-button[tab="seguimiento"]').click();
+  await expect(aviso).toHaveText('1');
+  await pestanaSeguimiento.click();
   await expect(novedades).toHaveCount(6);
+  await expect(aviso).toHaveCount(0);
   await expect(novedades.first().locator('h2')).toHaveText('Notebook');
   await expect(novedades.first().locator('p')).toHaveText('El técnico actualizó el estado a: finalizada');
   await expect(novedades.first().locator('ion-note')).toHaveText('2026-11-24');
